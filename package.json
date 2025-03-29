@@ -12,6 +12,7 @@
     "prepare": "chmod +x .husky/*"
   },
   "dependencies": {
+    "axios": "^1.8.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.4.1"
