@@ -1,11 +1,14 @@
 import AppRoutes from "@/routes/AppRoutes";
+import { MantineProvider } from "@mantine/core";
 import { BrowserRouter } from "react-router-dom";
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <AppRoutes />
-    </BrowserRouter>
+    <MantineProvider>
+      <BrowserRouter>
+        <AppRoutes />
+      </BrowserRouter>
+    </MantineProvider>
   );
 };
 

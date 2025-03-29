@@ -12,6 +12,9 @@
     "prepare": "chmod +x .husky/*"
   },
   "dependencies": {
+    "@mantine/core": "^7.17.3",
+    "@mantine/form": "^7.17.3",
+    "@mantine/hooks": "^7.17.3",
     "axios": "^1.8.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
