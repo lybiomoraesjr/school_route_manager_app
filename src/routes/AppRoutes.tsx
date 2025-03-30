@@ -3,7 +3,7 @@ import LoginPage from "@/pages/LoginPage/LoginPage";
 import NotFoundPage from "@/pages/NotFoundPage";
 import { Route, Routes, Navigate, Outlet } from "react-router-dom";
 
-const user = true;
+const user = false;
 
 const PrivateRoute = () => {
   return user ? <Outlet /> : <Navigate to="/" />;
