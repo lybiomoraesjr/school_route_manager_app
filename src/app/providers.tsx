@@ -1,16 +1,11 @@
-import AppRoutes from "@/routes/AppRoutes";
 import { theme } from "@/theme";
 import { MantineProvider } from "@mantine/core";
 import { BrowserRouter } from "react-router-dom";
 
-const App = () => {
+export function AppProviders({ children }: { children: React.ReactNode }) {
   return (
     <MantineProvider theme={theme}>
-      <BrowserRouter>
-        <AppRoutes />
-      </BrowserRouter>
+      <BrowserRouter>{children}</BrowserRouter>
     </MantineProvider>
   );
-};
-
-export default App;
+}
