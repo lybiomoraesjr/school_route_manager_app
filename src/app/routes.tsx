@@ -1,6 +1,6 @@
-import Home from "@/pages/Home/Home";
-import LoginPage from "@/pages/LoginPage/LoginPage";
-import NotFoundPage from "@/pages/NotFoundPage";
+import Home from "@/features/home/ui/Home";
+import LoginPage from "@/features/auth/ui/LoginPage";
+import NotFoundPage from "@/shared/ui/NotFoundPage";
 import { Route, Routes, Navigate, Outlet } from "react-router-dom";
 
 const user = false;

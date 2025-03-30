@@ -1,5 +1,5 @@
 import { LOCAL_STORAGE_KEYS } from "@/config/storage.config";
-import { UserDTO } from "@/dtos/UserDTO";
+import { UserDTO } from "@/dtos/user.dto";
 
 export const storageUserSave = (user: UserDTO) => {
   localStorage.setItem(LOCAL_STORAGE_KEYS.USER, JSON.stringify(user));

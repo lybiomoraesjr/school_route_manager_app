@@ -7,7 +7,10 @@ import {
   Title,
   Stack,
 } from "@mantine/core";
-import { LoginFormValues, loginSchema } from "@/validators/login.validator";
+import {
+  LoginFormValues,
+  loginSchema,
+} from "@/features/auth/model/login.schema";
 
 export const LoginForm = () => {
   const form = useForm<LoginFormValues>({
