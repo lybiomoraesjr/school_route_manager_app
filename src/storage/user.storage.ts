@@ -1,12 +1,12 @@
+import { LOCAL_STORAGE_KEYS } from "@/config/storage.config";
 import { UserDTO } from "@/dtos/UserDTO";
-import { USER_STORAGE } from "./storageConfig";
 
 export const storageUserSave = (user: UserDTO) => {
-  localStorage.setItem(USER_STORAGE, JSON.stringify(user));
+  localStorage.setItem(LOCAL_STORAGE_KEYS.USER, JSON.stringify(user));
 };
 
 export const storageUserGet = () => {
-  const storage = localStorage.getItem(USER_STORAGE);
+  const storage = localStorage.getItem(LOCAL_STORAGE_KEYS.USER);
 
   const user: UserDTO = storage ? JSON.parse(storage) : {};
 
@@ -14,5 +14,5 @@ export const storageUserGet = () => {
 };
 
 export const storageUserRemove = () => {
-  localStorage.removeItem(USER_STORAGE);
+  localStorage.removeItem(LOCAL_STORAGE_KEYS.USER);
 };
