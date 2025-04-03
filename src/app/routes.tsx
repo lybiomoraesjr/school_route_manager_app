@@ -2,11 +2,18 @@ import Home from "@/features/home/ui/Home";
 import LoginPage from "@/features/auth/ui/LoginPage";
 import NotFoundPage from "@/shared/ui/NotFoundPage";
 import { Route, Routes, Navigate, Outlet } from "react-router-dom";
+import { Layout } from "@/shared/layouts";
 
-const user = false;
+const user = true;
 
 const PrivateRoute = () => {
-  return user ? <Outlet /> : <Navigate to="/" />;
+  return user ? (
+    <Layout>
+      <Outlet />
+    </Layout>
+  ) : (
+    <Navigate to="/" />
+  );
 };
 
 const PublicRoute = () => {
