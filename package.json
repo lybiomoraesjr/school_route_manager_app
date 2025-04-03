@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "preinstall": "echo 'Use yarn, not npm' && exit 1",
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
