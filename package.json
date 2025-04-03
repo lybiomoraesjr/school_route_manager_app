@@ -17,6 +17,7 @@
     "@mantine/hooks": "^7.17.3",
     "axios": "^1.8.4",
     "cookies-next": "^5.1.0",
+    "phosphor-react": "^1.4.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.4.1",
