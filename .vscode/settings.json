@@ -3,8 +3,10 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "typescript.preferences.importModuleSpecifier": "non-relative",
   "javascript.preferences.importModuleSpecifier": "non-relative",
-  "editor.tabSize": 2,
+  "editor.tabSize": 4,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
-  }
+  },
+  "prettier.useTabs": true,
+  "prettier.tabWidth": 4
 }
