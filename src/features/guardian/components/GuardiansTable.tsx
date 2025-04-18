@@ -11,7 +11,6 @@ export const GuardiansTable = () => {
 				{ accessor: "phone", title: "Telefone", sortable: true },
 				{ accessor: "cpf", title: "CPF", sortable: true },
 				{ accessor: "address", title: "Endereço", sortable: true },
-				{ accessor: "cnh", title: "CNH", sortable: true },
 				{
 					accessor: "birthDate",
 					title: "Data de nascimento",
