@@ -10,6 +10,7 @@ import MonitorPage from "@/features/monitor/ui/MonitorPage";
 import VehiclePage from "@/features/vehicles/ui/VehiclePage";
 import StopPage from "@/features/stop/ui/StopPage";
 import RoutePage from "@/features/route/ui/RoutePage";
+import GuardianPage from "@/features/guardian/ui/GuardianPage";
 
 const user = true;
 
@@ -43,6 +44,7 @@ const AppRoutes = () => {
 				<Route path="/veiculos" element={<VehiclePage />} />
 				<Route path="/paradas" element={<StopPage />} />
 				<Route path="/rotas" element={<RoutePage />} />
+				<Route path="/responsaveis" element={<GuardianPage />} />
 			</Route>
 
 			<Route path="*" element={<NotFoundPage />} />

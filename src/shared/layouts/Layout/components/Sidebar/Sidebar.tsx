@@ -35,6 +35,11 @@ const links = [
 		route: "/monitores",
 	},
 	{ label: "Veículos", icon: <Bus size={ICON_SIZE} />, route: "/veiculos" },
+	{
+		label: "Responsáveis",
+		icon: <UserCircle size={ICON_SIZE} />,
+		route: "/responsaveis",
+	},
 ];
 
 export const Sidebar = () => {
