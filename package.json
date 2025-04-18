@@ -18,6 +18,7 @@
 		"axios": "^1.8.4",
 		"clsx": "^2.1.1",
 		"cookies-next": "^5.1.0",
+		"dayjs": "^1.11.13",
 		"mantine-datatable": "^7.17.1",
 		"phosphor-react": "^1.4.1",
 		"react": "^19.0.0",
