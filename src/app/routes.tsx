@@ -7,6 +7,7 @@ import DriverPage from "@/features/driver/ui/DriverPage";
 import StudentPage from "@/features/student/ui/StudentPage";
 import SchoolPage from "@/features/school/ui/SchoolPage";
 import MonitorPage from "@/features/monitor/ui/MonitorPage";
+import VehiclePage from "@/features/vehicles/ui/VehiclePage";
 
 const user = true;
 
@@ -37,9 +38,9 @@ const AppRoutes = () => {
 				<Route path="/estudantes" element={<StudentPage />} />
 				<Route path="/escolas" element={<SchoolPage />} />
 				<Route path="/monitores" element={<MonitorPage />} />
+				<Route path="/veiculos" element={<VehiclePage />} />
 				{/* <Route path="/routes" element={<RoutesPage />} /> 
 				<Route path="/stops" element={<StopsPage />} />
-				<Route path="/vehicles" element={<VehiclesPage />} />
 				<Route path="/settings" element={<SettingsPage />} /> */}
 			</Route>
 

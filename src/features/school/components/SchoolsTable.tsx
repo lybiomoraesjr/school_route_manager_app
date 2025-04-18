@@ -1,17 +1,32 @@
 import { EntityTable } from "@/shared/components/EntityTable/EntityTable";
-import { studentsMock } from "@/mock/students.mock";
+import { schoolsMock } from "@/mock/schools.mock";
 
 export const SchoolsTable = () => {
 	return (
 		<EntityTable
-			records={studentsMock}
+			records={schoolsMock}
 			defaultSortColumn="name"
 			columns={[
-				{ accessor: "name", title: "Nome", sortable: true },
-				{ accessor: "address", title: "Endereço", sortable: true },
-				{ accessor: "phone", title: "Telefone", sortable: true },
-				{ accessor: "email", title: "Email", sortable: true },
-				{ accessor: "status", title: "Status", sortable: true },
+				{
+					accessor: "name",
+					title: "Nome",
+					sortable: true,
+				},
+				{
+					accessor: "address",
+					title: "Endereço",
+					sortable: true,
+				},
+				{
+					accessor: "phone",
+					title: "Telefone",
+					sortable: true,
+				},
+				{
+					accessor: "email",
+					title: "Email",
+					sortable: true,
+				},
 			]}
 		/>
 	);
