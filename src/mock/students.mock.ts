@@ -1,3 +1,5 @@
+import { Status } from "@/shared/types/enums";
+
 export const studentsMock = [
 	{
 		id: "1",
@@ -9,6 +11,7 @@ export const studentsMock = [
 		guardianPhone: "(11) 98888-8888",
 		school: "Escola Municipal Modelo",
 		route: "Rota Azul",
+		status: Status.ACTIVE,
 	},
 	{
 		id: "2",
@@ -20,6 +23,7 @@ export const studentsMock = [
 		guardianPhone: "(11) 97777-6666",
 		school: "Colégio Intelecto",
 		route: "Rota Verde",
+		status: Status.ACTIVE,
 	},
 	{
 		id: "3",
@@ -31,5 +35,6 @@ export const studentsMock = [
 		guardianPhone: "(11) 96543-2100",
 		school: "Instituto Futuro Brilhante",
 		route: "Rota Vermelha",
+		status: Status.ACTIVE,
 	},
 ];

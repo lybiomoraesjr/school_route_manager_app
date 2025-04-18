@@ -36,7 +36,6 @@ const AppRoutes = () => {
 				{/* <Route path="/routes" element={<RoutesPage />} /> */}
 				{/* <Route path="/schools" element={<SchoolsPage />} />
 				<Route path="/stops" element={<StopsPage />} />
-				<Route path="/extra-routes" element={<ExtraRoutesPage />} />
 				<Route path="/monitors" element={<MonitorsPage />} />
 				<Route path="/vehicles" element={<VehiclesPage />} />
 				<Route path="/settings" element={<SettingsPage />} /> */}
