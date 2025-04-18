@@ -6,6 +6,7 @@ import { Layout } from "@/shared/layouts";
 import DriverPage from "@/features/driver/ui/DriverPage";
 import StudentPage from "@/features/student/ui/StudentPage";
 import SchoolPage from "@/features/school/ui/SchoolPage";
+import MonitorPage from "@/features/monitor/ui/MonitorPage";
 
 const user = true;
 
@@ -35,9 +36,9 @@ const AppRoutes = () => {
 				<Route path="/motoristas" element={<DriverPage />} />
 				<Route path="/estudantes" element={<StudentPage />} />
 				<Route path="/escolas" element={<SchoolPage />} />
+				<Route path="/monitores" element={<MonitorPage />} />
 				{/* <Route path="/routes" element={<RoutesPage />} /> 
 				<Route path="/stops" element={<StopsPage />} />
-				<Route path="/monitors" element={<MonitorsPage />} />
 				<Route path="/vehicles" element={<VehiclesPage />} />
 				<Route path="/settings" element={<SettingsPage />} /> */}
 			</Route>
