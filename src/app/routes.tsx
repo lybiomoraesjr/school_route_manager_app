@@ -3,8 +3,9 @@ import LoginPage from "@/features/auth/ui/LoginPage";
 import NotFoundPage from "@/shared/ui/NotFoundPage";
 import { Route, Routes, Navigate, Outlet } from "react-router-dom";
 import { Layout } from "@/shared/layouts";
-import StudentPage from "@/features/students/ui/StudentPage";
 import DriverPage from "@/features/driver/ui/DriverPage";
+import StudentPage from "@/features/student/ui/StudentPage";
+import SchoolPage from "@/features/school/ui/SchoolPage";
 
 const user = true;
 
@@ -33,8 +34,8 @@ const AppRoutes = () => {
 				<Route path="/home" element={<Home />} />
 				<Route path="/motoristas" element={<DriverPage />} />
 				<Route path="/estudantes" element={<StudentPage />} />
-				{/* <Route path="/routes" element={<RoutesPage />} /> */}
-				{/* <Route path="/schools" element={<SchoolsPage />} />
+				<Route path="/escolas" element={<SchoolPage />} />
+				{/* <Route path="/routes" element={<RoutesPage />} /> 
 				<Route path="/stops" element={<StopsPage />} />
 				<Route path="/monitors" element={<MonitorsPage />} />
 				<Route path="/vehicles" element={<VehiclesPage />} />

@@ -1,4 +1,4 @@
-import { StudentsTable } from "@/features/students/components/StudentsTable";
+import { StudentsTable } from "@/features/student/components/StudentsTable";
 import { Container } from "@mantine/core";
 
 const StudentPage = () => {
