@@ -30,21 +30,11 @@ const links = [
 	},
 	{ label: "Paradas", icon: <MapPin size={ICON_SIZE} />, route: "/paradas" },
 	{
-		label: "Rotas Extras",
-		icon: <MapTrifold size={ICON_SIZE} />,
-		route: "/rotas-extras",
-	},
-	{
 		label: "Monitores",
 		icon: <UserCircle size={ICON_SIZE} />,
 		route: "/monitores",
 	},
 	{ label: "Veículos", icon: <Bus size={ICON_SIZE} />, route: "/veiculos" },
-	{
-		label: "Configurações",
-		icon: <Gear size={ICON_SIZE} />,
-		route: "/configuracoes",
-	},
 ];
 
 export const Sidebar = () => {
