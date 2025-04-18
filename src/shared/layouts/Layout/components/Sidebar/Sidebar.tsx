@@ -3,7 +3,6 @@ import {
 	House,
 	Users,
 	Bus,
-	Gear,
 	MapTrifold,
 	Student,
 	Buildings,
