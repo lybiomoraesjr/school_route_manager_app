@@ -37,7 +37,7 @@ const AppRoutes = () => {
 			<Route element={<PrivateRoute />}>
 				<Route path="/home" element={<Home />} />
 				<Route path="/motoristas" element={<DriverPage />} />
-				<Route path="/estudantes" element={<StudentPage />} />
+				<Route path="/alunos" element={<StudentPage />} />
 				<Route path="/escolas" element={<SchoolPage />} />
 				<Route path="/monitores" element={<MonitorPage />} />
 				<Route path="/veiculos" element={<VehiclePage />} />
