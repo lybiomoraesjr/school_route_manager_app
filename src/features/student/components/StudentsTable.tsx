@@ -11,17 +11,21 @@ export const StudentsTable: React.FC<StudentsTableProps> = ({ students }) => {
 			records={students}
 			defaultSortColumn="name"
 			columns={[
-				{ accessor: "name", title: "Nome", sortable: true },
-				{ accessor: "phone", title: "Telefone", sortable: true },
 				{
-					accessor: "guardianName",
-					title: "Responsável",
-					sortable: true,
+					accessor: "name",
+					title: "Nome",
 				},
 				{
-					accessor: "guardianPhone",
+					accessor: "phone",
+					title: "Telefone",
+				},
+				{
+					accessor: "guardian.name",
+					title: "Responsável",
+				},
+				{
+					accessor: "guardian.phone",
 					title: "Tel. Responsável",
-					sortable: true,
 				},
 			]}
 		/>
