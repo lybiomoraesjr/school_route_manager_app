@@ -1,11 +1,11 @@
-import { Address } from "@/shared/types/address";
+import { Address } from "@/shared/models/address.model";
 import { Status } from "@/shared/types/enums";
 
-export type Person = {
+export interface Person {
 	name: string;
 	phone: string;
 	birthDate: string;
 	cpf: string;
 	address: Address;
 	status: Status;
-};
+}

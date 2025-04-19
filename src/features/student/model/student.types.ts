@@ -1,12 +1,4 @@
-import { Guardian } from "@/features/guardian/model/guardian.types";
 import { Status } from "@/shared/types/enums/status";
-import { Person } from "@/shared/types/person";
-
-export type Student = Person & {
-	school: string;
-	route: string;
-	guardian: Guardian;
-};
 
 export type CreateStudentDTO = {
 	name: string;
