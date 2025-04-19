@@ -6,13 +6,7 @@ export const StopsTable = () => {
 		<EntityTable
 			records={stopsMock}
 			defaultSortColumn="name"
-			columns={[
-				{ accessor: "name", title: "Nome", sortable: true },
-				{ accessor: "address", title: "Endereço", sortable: true },
-				{ accessor: "phone", title: "Telefone", sortable: true },
-				{ accessor: "email", title: "Email", sortable: true },
-				{ accessor: "status", title: "Status", sortable: true },
-			]}
+			columns={[{ accessor: "name", title: "Nome", sortable: true }]}
 		/>
 	);
 };

@@ -1,16 +1,21 @@
-import { routesMock } from "@/mock/routes.mock";
+import { Route } from "@/features/route/model/route.model";
 import { EntityTable } from "@/shared/components/EntityTable/EntityTable";
 
-export const RoutesTable = () => {
+type RoutesTableProps = {
+	routes: Route[];
+};
+
+export const RoutesTable: React.FC<RoutesTableProps> = ({ routes }) => {
 	return (
 		<EntityTable
-			records={routesMock}
+			records={routes}
 			defaultSortColumn="name"
 			columns={[
-				{ accessor: "name", title: "Nome", sortable: true },
-				{ accessor: "start", title: "Início", sortable: true },
-				{ accessor: "end", title: "Fim", sortable: true },
-				{ accessor: "status", title: "Status", sortable: true },
+				{
+					accessor: "name",
+					title: "Nome",
+					sortable: true,
+				},
 			]}
 		/>
 	);
