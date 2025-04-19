@@ -1,8 +1,8 @@
 import { httpClient } from "../api.client";
 import { studentMapper } from "./student.repository.mapper";
-import { IStudentRepository } from "../../core/contracts/student.repository.contract";
 import { Student } from "@/features/student/model/student.model";
 import { CriarAlunoDTO, AlunoDTO } from "./student.repository.dto";
+import { IStudentRepository } from "@/libs/core/contracts/student.repository.contract";
 
 export class ApiStudentRepository implements IStudentRepository {
 	async createStudent(student: Student): Promise<void> {

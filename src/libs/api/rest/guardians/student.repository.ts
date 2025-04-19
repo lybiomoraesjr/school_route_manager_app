@@ -1,8 +1,8 @@
 import { httpClient } from "../api.client";
-import { IGuardianRepository } from "../../core/contracts/guardian.repository.contract";
 import { Guardian } from "@/features/guardian/model/guardian.model";
 import { CriarResponsavelDTO, ResponsavelDTO } from "./guardian.repository.dto";
-import { guardianMapper } from "@/libs/api/guardians/student.repository.mapper";
+import { IGuardianRepository } from "@/libs/core/contracts/guardian.repository.contract";
+import { guardianMapper } from "@/libs/api/rest/guardians/student.repository.mapper";
 
 export class ApiGuardianRepository implements IGuardianRepository {
 	async createGuardian(guardian: Guardian): Promise<void> {
