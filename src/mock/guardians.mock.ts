@@ -1,4 +1,4 @@
-import { Guardian } from "@/features/guardian/model/student.model";
+import { Guardian } from "@/features/guardian/model/guardian.model";
 import { Status } from "@/shared/types/enums";
 
 export const guardiansMock: Guardian[] = [
