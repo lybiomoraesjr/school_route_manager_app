@@ -1,10 +1,14 @@
-import { driversMock } from "@/mock/drivers.mock";
 import { EntityTable } from "@/shared/components/EntityTable/EntityTable";
+import { Driver } from "@/features/driver/model/driver.model";
 
-export const DriverTable = () => {
+type DriverTableProps = {
+	drivers: Driver[];
+};
+
+export const DriverTable: React.FC<DriverTableProps> = ({ drivers }) => {
 	return (
 		<EntityTable
-			records={driversMock}
+			records={drivers}
 			defaultSortColumn="name"
 			columns={[
 				{ accessor: "name", title: "Nome", sortable: true },

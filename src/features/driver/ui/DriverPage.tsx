@@ -1,10 +1,11 @@
 import { DriverTable } from "@/features/driver/components/DriverTable";
+import { driversMock } from "@/mock/drivers.mock";
 import { Container } from "@mantine/core";
 
 const DriverPage = () => {
 	return (
 		<Container fluid>
-			<DriverTable />
+			<DriverTable drivers={driversMock} />
 		</Container>
 	);
 };
