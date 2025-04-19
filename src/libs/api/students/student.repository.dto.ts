@@ -1,3 +1,4 @@
+import { EnderecoDTO } from "@/shared/dtos/address.dto";
 import { StatusAPI } from "@/shared/types/enums/status-api.enum";
 
 interface BaseAlunoDTO {
@@ -5,14 +6,7 @@ interface BaseAlunoDTO {
 	cpf: string;
 	dataNascimento: string;
 	telefone: string;
-	endereco: {
-		rua: string;
-		numero: string;
-		bairro: string;
-		cidade: string;
-		cep: string;
-		complemento?: string;
-	};
+	endereco: EnderecoDTO;
 	status: StatusAPI;
 	guardianId: string;
 }

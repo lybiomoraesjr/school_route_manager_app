@@ -1,20 +1,16 @@
+import { EnderecoDTO } from "@/shared/dtos/address.dto";
 import { StatusAPI } from "@/shared/types/enums/status-api.enum";
 
-export interface CriarResponsavelDTO {
+interface BaseResponsavelDTO {
 	nome: string;
 	telefone: string;
 	cpf: string;
 	dataNascimento: string;
-	endereco: {
-		rua: string;
-		numero: string;
-		bairro: string;
-		cidade: string;
-		cep: string;
-		complemento?: string;
-	};
+	endereco: EnderecoDTO;
 	status: StatusAPI;
 }
+
+export interface CriarResponsavelDTO extends BaseResponsavelDTO {}
 
 export interface ResponsavelDTO extends CriarResponsavelDTO {
 	id: string;
