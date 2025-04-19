@@ -1,7 +1,8 @@
-import { VehicleType } from "@/features/vehicles/model/vehicle.enums";
+import { Vehicle } from "@/features/vehicles/model/vehicle.model";
+import { VehicleType } from "@/features/vehicles/model/vehicle.types";
 import { Status } from "@/shared/types/enums";
 
-export const vehiclesMock = [
+export const vehiclesMock: Vehicle[] = [
 	{
 		id: "1",
 		name: "Veículo 1",
@@ -28,6 +29,7 @@ export const vehiclesMock = [
 		plate: "GHI9012",
 		model: "Modelo 3",
 		year: "2022",
+		capacity: 30,
 		type: VehicleType.BUS,
 		status: Status.ACTIVE,
 	},

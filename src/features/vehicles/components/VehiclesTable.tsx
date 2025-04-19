@@ -1,10 +1,14 @@
+import { Vehicle } from "@/features/vehicles/model/vehicle.model";
 import { EntityTable } from "@/shared/components/EntityTable/EntityTable";
-import { vehiclesMock } from "@/mock/vehicles.mock";
 
-export const VehiclesTable = () => {
+type VehiclesTableProps = {
+	vehicles: Vehicle[];
+};
+
+export const VehiclesTable: React.FC<VehiclesTableProps> = ({ vehicles }) => {
 	return (
 		<EntityTable
-			records={vehiclesMock}
+			records={vehicles}
 			defaultSortColumn="name"
 			columns={[
 				{ accessor: "name", title: "Nome", sortable: true },
