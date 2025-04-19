@@ -1,20 +1,33 @@
 import { EntityTable } from "@/shared/components/EntityTable/EntityTable";
-import { guardiansMock } from "@/mock/guardians.mock";
+import { Guardian } from "@/features/guardian/model/student.model";
 
-export const GuardiansTable = () => {
+type GuardiansTableProps = {
+	guardians: Guardian[];
+};
+
+export const GuardiansTable: React.FC<GuardiansTableProps> = ({
+	guardians,
+}) => {
 	return (
 		<EntityTable
-			records={guardiansMock}
+			records={guardians}
 			defaultSortColumn="name"
 			columns={[
-				{ accessor: "name", title: "Nome", sortable: true },
-				{ accessor: "phone", title: "Telefone", sortable: true },
-				{ accessor: "cpf", title: "CPF", sortable: true },
-				{ accessor: "address", title: "Endereço", sortable: true },
+				{
+					accessor: "name",
+					title: "Nome",
+				},
+				{
+					accessor: "phone",
+					title: "Telefone",
+				},
+				{
+					accessor: "cpf",
+					title: "CPF",
+				},
 				{
 					accessor: "birthDate",
 					title: "Data de nascimento",
-					sortable: true,
 				},
 			]}
 		/>
