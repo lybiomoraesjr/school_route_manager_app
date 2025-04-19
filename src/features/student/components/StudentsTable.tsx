@@ -19,14 +19,6 @@ export const StudentsTable: React.FC<StudentsTableProps> = ({ students }) => {
 					accessor: "phone",
 					title: "Telefone",
 				},
-				{
-					accessor: "guardian.name",
-					title: "Responsável",
-				},
-				{
-					accessor: "guardian.phone",
-					title: "Tel. Responsável",
-				},
 			]}
 		/>
 	);

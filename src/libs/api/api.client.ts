@@ -1,17 +1,10 @@
 import axios from "axios";
+import { env } from "@/config/env";
 
-export const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL,
-  timeout: 8000,
-  headers: {
-    "Content-Type": "application/json",
-  },
-});
-
-api.interceptors.request.use((config) => {
-  const token = localStorage.getItem("@rotacerta:authToken");
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
-  }
-  return config;
+export const httpClient = axios.create({
+	baseURL: env.VITE_API_URL,
+	withCredentials: true,
+	headers: {
+		"Content-Type": "application/json",
+	},
 });
