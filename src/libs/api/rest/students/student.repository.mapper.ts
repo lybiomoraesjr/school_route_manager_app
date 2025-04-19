@@ -1,7 +1,7 @@
 import { Student } from "@/features/student/model/student.model";
 import { AlunoDTO, CriarAlunoDTO } from "./student.repository.dto";
-import { statusMapper } from "@/shared/mappers/status.mapper";
-import { addressMapper } from "@/shared/mappers/address.mapper";
+import { statusMapper } from "@/shared/mappers/rest/status.mapper";
+import { addressMapper } from "@/shared/mappers/rest/address.mapper";
 
 export const studentMapper = {
 	fromApi(dto: AlunoDTO): Student {

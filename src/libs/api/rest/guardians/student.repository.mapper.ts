@@ -1,7 +1,7 @@
 import { Guardian } from "@/features/guardian/model/guardian.model";
 import { CriarResponsavelDTO, ResponsavelDTO } from "./guardian.repository.dto";
-import { statusMapper } from "@/shared/mappers/status.mapper";
-import { addressMapper } from "@/shared/mappers/address.mapper";
+import { statusMapper } from "@/shared/mappers/rest/status.mapper";
+import { addressMapper } from "@/shared/mappers/rest/address.mapper";
 
 export const guardianMapper = {
 	fromApi(dto: ResponsavelDTO): Guardian {

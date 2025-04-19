@@ -1,4 +1,4 @@
-import { IStudentRepository } from "@/libs/api/students/student.repository.contract";
+import { IStudentRepository } from "@/libs/core/contracts/student.repository.contract";
 import { Student } from "../model/student.model";
 
 export class StudentService {

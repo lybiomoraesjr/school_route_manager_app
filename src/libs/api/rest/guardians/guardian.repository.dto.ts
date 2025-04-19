@@ -1,4 +1,4 @@
-import { EnderecoDTO } from "@/shared/dtos/address.dto";
+import { EnderecoDTO } from "@/shared/dtos/rest/address.dto";
 import { StatusAPI } from "@/shared/types/enums/status-api.enum";
 
 interface BaseResponsavelDTO {

@@ -1,6 +1,6 @@
 import { httpClient } from "../api.client";
 import { studentMapper } from "./student.repository.mapper";
-import { IStudentRepository } from "./student.repository.contract";
+import { IStudentRepository } from "../../core/contracts/student.repository.contract";
 import { Student } from "@/features/student/model/student.model";
 import { CriarAlunoDTO, AlunoDTO } from "./student.repository.dto";
 

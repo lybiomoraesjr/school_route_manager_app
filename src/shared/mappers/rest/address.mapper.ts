@@ -1,4 +1,4 @@
-import { EnderecoDTO } from "@/shared/dtos/address.dto";
+import { EnderecoDTO } from "@/shared/dtos/rest/address.dto";
 import { Address } from "@/shared/schemas";
 
 export const addressMapper = {

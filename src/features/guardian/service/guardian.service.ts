@@ -1,4 +1,4 @@
-import { IGuardianRepository } from "@/libs/api/guardians/guardian.repository.contract";
+import { IGuardianRepository } from "@/libs/core/contracts/guardian.repository.contract";
 import { Guardian } from "../model/guardian.model";
 
 export class GuardianService {
