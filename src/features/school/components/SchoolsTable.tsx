@@ -1,20 +1,19 @@
 import { EntityTable } from "@/shared/components/EntityTable/EntityTable";
-import { schoolsMock } from "@/mock/schools.mock";
+import { School } from "@/features/school/model/school.model";
 
-export const SchoolsTable = () => {
+type SchoolsTableProps = {
+	schools: School[];
+};
+
+export const SchoolsTable: React.FC<SchoolsTableProps> = ({ schools }) => {
 	return (
 		<EntityTable
-			records={schoolsMock}
+			records={schools}
 			defaultSortColumn="name"
 			columns={[
 				{
 					accessor: "name",
 					title: "Nome",
-					sortable: true,
-				},
-				{
-					accessor: "address",
-					title: "Endereço",
 					sortable: true,
 				},
 				{
