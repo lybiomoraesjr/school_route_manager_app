@@ -1,6 +1,7 @@
 import { Student } from "@/features/student/model/student.model";
 import { AlunoDTO, CriarAlunoDTO } from "./student.repository.dto";
 import { statusMapper } from "@/shared/mappers/status.mapper";
+import { addressMapper } from "@/shared/mappers/address.mapper";
 
 export const studentMapper = {
 	fromApi(dto: AlunoDTO): Student {
@@ -11,14 +12,7 @@ export const studentMapper = {
 			birthDate: dto.dataNascimento,
 			guardianId: dto.guardianId,
 			phone: dto.telefone,
-			address: {
-				street: dto.endereco.rua,
-				number: dto.endereco.numero,
-				neighborhood: dto.endereco.bairro,
-				city: dto.endereco.cidade,
-				zipCode: dto.endereco.cep,
-				complement: dto.endereco.complemento,
-			},
+			address: addressMapper.fromApi(dto.endereco),
 			status: statusMapper.fromApi(dto.status),
 		};
 	},
@@ -29,14 +23,7 @@ export const studentMapper = {
 			cpf: model.cpf,
 			dataNascimento: model.birthDate,
 			telefone: model.phone,
-			endereco: {
-				rua: model.address.street,
-				numero: model.address.number,
-				bairro: model.address.neighborhood,
-				cidade: model.address.city,
-				cep: model.address.zipCode,
-				complemento: model.address.complement,
-			},
+			endereco: addressMapper.toApi(model.address),
 			status: statusMapper.toApi(model.status),
 			guardianId: model.guardianId,
 		};
