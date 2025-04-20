@@ -1,25 +1,22 @@
+import { PostalCodeMasks } from "@/shared/constants/mask.constants";
 import { InputBase, InputBaseProps } from "@mantine/core";
 import { IMaskInput } from "react-imask";
 
 type PostalCodeInputProps = InputBaseProps & {
-	country: "BR";
+	country?: string;
 	readOnly?: boolean;
 	placeholder?: string;
 	label?: string;
 };
 
-const postalCodeMasks: Record<PostalCodeInputProps["country"], string> = {
-	BR: "00000-000",
-};
-
 export const PostalCodeInput: React.FC<PostalCodeInputProps> = ({
-	country,
+	country = "BR",
 	readOnly,
 	placeholder,
 	label = "Postal Code",
 	...rest
 }) => {
-	const mask = postalCodeMasks[country];
+	const mask = PostalCodeMasks[country];
 
 	return (
 		<InputBase

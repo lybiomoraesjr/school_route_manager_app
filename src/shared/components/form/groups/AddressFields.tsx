@@ -40,7 +40,6 @@ export const AddressFields = ({
 		<>
 			<PostalCodeInput
 				label="CEP"
-				country="BR"
 				{...form.getInputProps("zipCode")}
 				withAsterisk={
 					!readOnly && isFieldRequired(AddressSchema, "zipCode")
