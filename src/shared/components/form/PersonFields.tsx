@@ -1,3 +1,4 @@
+import { CpfInput } from "@/shared/components/form/CpfInput";
 import { TextInput, Select } from "@mantine/core";
 
 export const PersonFields = ({
@@ -15,12 +16,9 @@ export const PersonFields = ({
 				withAsterisk={!readOnly}
 				disabled={readOnly}
 			/>
-			<TextInput
-				label="CPF"
-				{...form.getInputProps("cpf")}
-				withAsterisk={!readOnly}
-				disabled={readOnly}
-			/>
+
+			<CpfInput {...form.getInputProps("cpf")} readOnly={readOnly} />
+
 			<TextInput
 				label="Data de nascimento"
 				{...form.getInputProps("birthDate")}
