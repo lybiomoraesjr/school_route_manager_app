@@ -16,7 +16,7 @@ export const PostalCodeInput: React.FC<PostalCodeInputProps> = ({
 	country,
 	readOnly,
 	placeholder,
-	label = "CEP",
+	label = "Postal Code",
 	...rest
 }) => {
 	const mask = postalCodeMasks[country];

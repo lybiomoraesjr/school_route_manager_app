@@ -1,4 +1,6 @@
 import { PostalCodeInput } from "@/shared/components/form/PostalCodeInput";
+import { AddressSchema } from "@/shared/schemas";
+import { isFieldRequired } from "@/shared/utils/zod.utils";
 import { TextInput } from "@mantine/core";
 
 export const AddressFields = ({
@@ -14,14 +16,18 @@ export const AddressFields = ({
 				label="CEP"
 				country="BR"
 				{...form.getInputProps("zipCode")}
-				withAsterisk={!readOnly}
+				withAsterisk={
+					!readOnly && isFieldRequired(AddressSchema, "zipCode")
+				}
 				disabled={readOnly}
 			/>
 			<TextInput
 				label="Rua"
 				placeholder="Ex: Avenida Brasil"
 				{...form.getInputProps("street")}
-				withAsterisk={!readOnly}
+				withAsterisk={
+					!readOnly && isFieldRequired(AddressSchema, "street")
+				}
 				disabled={readOnly}
 			/>
 
@@ -29,7 +35,9 @@ export const AddressFields = ({
 				label="Número"
 				placeholder="Ex: 123"
 				{...form.getInputProps("number")}
-				withAsterisk={!readOnly}
+				withAsterisk={
+					!readOnly && isFieldRequired(AddressSchema, "number")
+				}
 				disabled={readOnly}
 			/>
 
@@ -37,7 +45,9 @@ export const AddressFields = ({
 				label="Bairro"
 				placeholder="Ex: Centro"
 				{...form.getInputProps("neighborhood")}
-				withAsterisk={!readOnly}
+				withAsterisk={
+					!readOnly && isFieldRequired(AddressSchema, "neighborhood")
+				}
 				disabled={readOnly}
 			/>
 
@@ -45,7 +55,9 @@ export const AddressFields = ({
 				label="Cidade"
 				placeholder="Ex: São Paulo"
 				{...form.getInputProps("city")}
-				withAsterisk={!readOnly}
+				withAsterisk={
+					!readOnly && isFieldRequired(AddressSchema, "city")
+				}
 				disabled={readOnly}
 			/>
 
@@ -53,6 +65,9 @@ export const AddressFields = ({
 				label="Complemento"
 				placeholder="Ex: Apto 101, Bloco B"
 				{...form.getInputProps("complement")}
+				withAsterisk={
+					!readOnly && isFieldRequired(AddressSchema, "complement")
+				}
 				disabled={readOnly}
 			/>
 
@@ -60,7 +75,9 @@ export const AddressFields = ({
 				label="Estado"
 				placeholder="Ex: SP"
 				{...form.getInputProps("state")}
-				withAsterisk={!readOnly}
+				withAsterisk={
+					!readOnly && isFieldRequired(AddressSchema, "state")
+				}
 				disabled={readOnly}
 			/>
 		</>
