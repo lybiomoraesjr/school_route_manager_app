@@ -1,4 +1,4 @@
-import { Address, AddressSchema } from "@/shared/schemas/address.schema";
+import { Address, AddressSchema } from "@/shared/schemas/fields/address.schema";
 import { useForm, zodResolver } from "@mantine/form";
 
 export const useAddressForm = (initialValues?: Partial<Address>) => {

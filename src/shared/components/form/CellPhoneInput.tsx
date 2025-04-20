@@ -1,20 +1,22 @@
 import { InputBase, InputBaseProps } from "@mantine/core";
 import { IMaskInput } from "react-imask";
-import React from "react";
 
-type CpfInputProps = InputBaseProps & {
+type CellPhoneInputProps = InputBaseProps & {
 	readOnly?: boolean;
 };
 
-export const CpfInput: React.FC<CpfInputProps> = ({ readOnly, ...rest }) => {
+export const CellPhoneInput: React.FC<CellPhoneInputProps> = ({
+	readOnly,
+	...rest
+}) => {
 	return (
 		<InputBase
-			label="CPF"
+			label="Celular"
 			withAsterisk={!readOnly}
 			disabled={readOnly}
 			component={IMaskInput}
-			mask="000.000.000-00"
-			placeholder="000.000.000-00"
+			mask="(00) 00000-0000"
+			placeholder="(00) 00000-0000"
 			{...rest}
 		/>
 	);

@@ -1,3 +1,3 @@
-export * from "./address.schema";
+export * from "./fields/address.schema";
 export * from "./person.schema";
-export * from "./status.schema";
+export * from "./fields/status.schema";
