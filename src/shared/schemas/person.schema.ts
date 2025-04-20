@@ -10,3 +10,5 @@ export const PersonSchema = z.object({
 	address: AddressSchema,
 	status: StatusSchema,
 });
+
+export type Person = z.infer<typeof PersonSchema>;
