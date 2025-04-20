@@ -6,6 +6,7 @@ import { Status } from "@/shared/types";
 import { isFieldRequired } from "@/shared/utils/zod.utils";
 import { TextInput, Select } from "@mantine/core";
 import { DateInput } from "@mantine/dates";
+import { IMaskInput } from "react-imask";
 
 export const PersonFields = ({
 	form,
@@ -42,6 +43,8 @@ export const PersonFields = ({
 				disabled={readOnly}
 				valueFormat="DD/MM/YYYY"
 				locale="pt-br"
+				component={IMaskInput}
+				mask="00/00/0000"
 			/>
 
 			<PhoneInput

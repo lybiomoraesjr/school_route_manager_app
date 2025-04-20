@@ -12,7 +12,6 @@ export const CellPhoneInput: React.FC<CellPhoneInputProps> = ({
 	return (
 		<InputBase
 			label="Celular"
-			withAsterisk={!readOnly}
 			disabled={readOnly}
 			component={IMaskInput}
 			mask="(00) 00000-0000"

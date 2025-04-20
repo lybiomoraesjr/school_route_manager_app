@@ -10,7 +10,6 @@ export const CpfInput: React.FC<CpfInputProps> = ({ readOnly, ...rest }) => {
 	return (
 		<InputBase
 			label="CPF"
-			withAsterisk={!readOnly}
 			disabled={readOnly}
 			component={IMaskInput}
 			mask="000.000.000-00"
