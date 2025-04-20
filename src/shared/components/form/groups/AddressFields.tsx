@@ -2,9 +2,11 @@ import { PostalCodeInput } from "@/shared/components/form/inputs/PostalCodeInput
 import { AddressSchema } from "@/shared/schemas";
 import { fetchAddressByCep } from "@/shared/utils/cep.utils";
 import { isFieldRequired } from "@/shared/utils/zod.utils";
-import { TextInput } from "@mantine/core";
+import { Select, TextInput } from "@mantine/core";
 import { useEffect } from "react";
 import { notifications } from "@mantine/notifications";
+import { BRAZILIAN_STATES } from "@/shared/constants/br-states.constants";
+import { unmaskCep } from "@/shared/utils/format.utils";
 
 export const AddressFields = ({
 	form,
@@ -16,25 +18,30 @@ export const AddressFields = ({
 	useEffect(() => {
 		const zipCode = form.values.zipCode;
 
-		if (zipCode && zipCode.replace(/\D/g, "").length === 8) {
-			fetchAddressByCep(zipCode)
-				.then((data) => {
-					form.setValues((prev: any) => ({
-						...prev,
-						street: data.street,
-						neighborhood: data.neighborhood,
-						city: data.city,
-						state: data.state,
-					}));
-				})
-				.catch(() => {
-					notifications.show({
-						color: "red",
-						title: "Erro ao buscar endereço",
-						message: "Verifique se o CEP digitado é válido.",
-					});
+		const fetchAndFillAddress = async () => {
+			const unmasked = unmaskCep(zipCode);
+			if (!unmasked || unmasked.length !== 8) return;
+
+			try {
+				const data = await fetchAddressByCep(unmasked);
+
+				form.setValues((prev: any) => ({
+					...prev,
+					street: data.street,
+					neighborhood: data.neighborhood,
+					city: data.city,
+					state: data.state,
+				}));
+			} catch (err) {
+				notifications.show({
+					color: "red",
+					title: "Erro ao buscar endereço",
+					message: "Verifique se o CEP digitado é válido.",
 				});
-		}
+			}
+		};
+
+		fetchAndFillAddress();
 	}, [form.values.zipCode]);
 	return (
 		<>
@@ -96,9 +103,10 @@ export const AddressFields = ({
 				disabled={readOnly}
 			/>
 
-			<TextInput
+			<Select
 				label="Estado"
-				placeholder="Ex: SP"
+				placeholder="Selecione o estado"
+				data={BRAZILIAN_STATES}
 				{...form.getInputProps("state")}
 				withAsterisk={
 					!readOnly && isFieldRequired(AddressSchema, "state")

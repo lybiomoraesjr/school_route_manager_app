@@ -1,7 +1,7 @@
-import { cleanCpf } from "@/shared/utils/format.utils";
+import { unmaskCpf } from "@/shared/utils/format.utils";
 
 export const isValidCpf = (cpf: string): boolean => {
-	const unmasked = cleanCpf(cpf);
+	const unmasked = unmaskCpf(cpf);
 
 	if (unmasked.length !== 11 || /^(\d)\1+$/.test(unmasked)) return false;
 

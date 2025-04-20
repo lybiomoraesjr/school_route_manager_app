@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export async function fetchAddressByCep(cep: string) {
+export const fetchAddressByCep = async (cep: string) => {
 	const unmaskedCep = cep.replace(/\D/g, "");
 	if (unmaskedCep.length !== 8) throw new Error("CEP inválido");
 
@@ -20,4 +20,4 @@ export async function fetchAddressByCep(cep: string) {
 	} catch (error) {
 		throw new Error("Error searching for zip code");
 	}
-}
+};
