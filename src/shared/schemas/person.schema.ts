@@ -19,6 +19,7 @@ export const PersonSchema = z.object({
 		.refine(isValidCpf, { message: "CPF inválido" }),
 	address: AddressSchema,
 	status: StatusSchema,
+	email: z.string().email("Email inválido"),
 });
 
 export type Person = z.infer<typeof PersonSchema>;
