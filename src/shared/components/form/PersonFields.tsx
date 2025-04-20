@@ -1,11 +1,11 @@
+import { SimpleGrid, TextInput, Select } from "@mantine/core";
+import { DateInput } from "@mantine/dates";
 import { CpfInput } from "@/shared/components/form/CpfInput";
+import { IMaskInput } from "react-imask";
 import { PersonSchema } from "@/shared/schemas";
 import { Status } from "@/shared/types";
 import { isFieldRequired } from "@/shared/utils/zod.utils";
-import { TextInput, Select } from "@mantine/core";
-import { DateInput } from "@mantine/dates";
-import { IMaskInput } from "react-imask";
-
+import { useResponsive } from "@/shared/hooks/useResponsive";
 export const PersonFields = ({
 	form,
 	readOnly = false,
@@ -13,8 +13,9 @@ export const PersonFields = ({
 	form: any;
 	readOnly?: boolean;
 }) => {
+	const { isMobile } = useResponsive();
 	return (
-		<>
+		<SimpleGrid cols={isMobile ? 1 : 2} spacing="md">
 			<TextInput
 				label="Nome"
 				{...form.getInputProps("name")}
@@ -57,6 +58,6 @@ export const PersonFields = ({
 				}
 				disabled={readOnly}
 			/>
-		</>
+		</SimpleGrid>
 	);
 };
