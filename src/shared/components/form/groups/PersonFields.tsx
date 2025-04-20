@@ -1,6 +1,6 @@
 import { SimpleGrid, TextInput, Select } from "@mantine/core";
 import { DateInput } from "@mantine/dates";
-import { CpfInput } from "@/shared/components/form/CpfInput";
+import { CpfInput } from "@/shared/components/form/inputs/CpfInput";
 import { IMaskInput } from "react-imask";
 import { PersonSchema } from "@/shared/schemas";
 import { Status } from "@/shared/types";

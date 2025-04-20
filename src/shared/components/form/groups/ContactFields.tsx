@@ -1,5 +1,5 @@
-import { PhoneInput } from "@/shared/components/form/PhoneInput";
-import { CellPhoneInput } from "@/shared/components/form/CellPhoneInput";
+import { PhoneInput } from "@/shared/components/form/inputs/PhoneInput";
+import { CellPhoneInput } from "@/shared/components/form/inputs/CellPhoneInput";
 import { isFieldRequired } from "@/shared/utils/zod.utils";
 import { PersonSchema } from "@/shared/schemas";
 

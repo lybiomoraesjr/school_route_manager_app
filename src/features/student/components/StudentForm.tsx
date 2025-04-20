@@ -1,9 +1,9 @@
 import { usePersonForm } from "@/shared/hooks/usePersonForm";
 import { useAddressForm } from "@/shared/hooks/useAddressForm";
-import { PersonFields } from "@/shared/components/form/PersonFields";
-import { AddressFields } from "@/shared/components/form/AddressFields";
+import { PersonFields } from "@/shared/components/form/groups/PersonFields";
+import { AddressFields } from "@/shared/components/form/groups/AddressFields";
 import { Button } from "@mantine/core";
-import { ContactFields } from "@/shared/components/form/ContactFields";
+import { ContactFields } from "@/shared/components/form/groups/ContactFields";
 
 export const StudentForm = () => {
 	const personForm = usePersonForm();

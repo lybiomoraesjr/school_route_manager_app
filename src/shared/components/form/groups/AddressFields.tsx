@@ -1,4 +1,4 @@
-import { PostalCodeInput } from "@/shared/components/form/PostalCodeInput";
+import { PostalCodeInput } from "@/shared/components/form/inputs/PostalCodeInput";
 import { AddressSchema } from "@/shared/schemas";
 import { isFieldRequired } from "@/shared/utils/zod.utils";
 import { TextInput } from "@mantine/core";
