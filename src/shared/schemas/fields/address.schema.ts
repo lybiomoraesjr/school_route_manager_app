@@ -7,6 +7,7 @@ export const AddressSchema = z.object({
 	city: z.string().min(1, "Cidade é obrigatória"),
 	zipCode: z.string().regex(/^\d{5}-?\d{3}$/, "Formato de CEP inválido"),
 	complement: z.string().optional(),
+	state: z.string().min(1, "Estado é obrigatório"),
 });
 
 export type Address = z.infer<typeof AddressSchema>;

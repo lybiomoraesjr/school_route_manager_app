@@ -1,3 +1,4 @@
+import { PostalCodeInput } from "@/shared/components/form/PostalCodeInput";
 import { TextInput } from "@mantine/core";
 
 export const AddressFields = ({
@@ -9,6 +10,13 @@ export const AddressFields = ({
 }) => {
 	return (
 		<>
+			<PostalCodeInput
+				label="CEP"
+				country="BR"
+				{...form.getInputProps("zipCode")}
+				withAsterisk={!readOnly}
+				disabled={readOnly}
+			/>
 			<TextInput
 				label="Rua"
 				placeholder="Ex: Avenida Brasil"
@@ -42,17 +50,17 @@ export const AddressFields = ({
 			/>
 
 			<TextInput
-				label="CEP"
-				placeholder="00000-000"
-				{...form.getInputProps("zipCode")}
-				withAsterisk={!readOnly}
+				label="Complemento"
+				placeholder="Ex: Apto 101, Bloco B"
+				{...form.getInputProps("complement")}
 				disabled={readOnly}
 			/>
 
 			<TextInput
-				label="Complemento"
-				placeholder="Ex: Apto 101, Bloco B"
-				{...form.getInputProps("complement")}
+				label="Estado"
+				placeholder="Ex: SP"
+				{...form.getInputProps("state")}
+				withAsterisk={!readOnly}
 				disabled={readOnly}
 			/>
 		</>
