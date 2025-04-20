@@ -11,11 +11,11 @@ type EntityTableProps<T> = {
 	defaultSortColumn: keyof T;
 };
 
-export function EntityTable<T extends Record<string, any>>({
+export const EntityTable = <T extends Record<string, any>>({
 	records,
 	columns,
 	defaultSortColumn,
-}: EntityTableProps<T>) {
+}: EntityTableProps<T>) => {
 	const [sortStatus, setSortStatus] = useState<DataTableSortStatus>({
 		columnAccessor: defaultSortColumn as string,
 		direction: "asc",
@@ -41,4 +41,4 @@ export function EntityTable<T extends Record<string, any>>({
 			records={sortedRecords}
 		/>
 	);
-}
+};
