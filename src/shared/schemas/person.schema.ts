@@ -3,10 +3,10 @@ import { StatusSchema } from "@/shared/schemas/status.schema";
 import { z } from "zod";
 
 export const PersonSchema = z.object({
-	name: z.string(),
-	phone: z.string(),
-	birthDate: z.string(),
-	cpf: z.string(),
+	name: z.string().min(1, "Nome é obrigatório"),
+	phone: z.string().min(1, "Telefone é obrigatório"),
+	birthDate: z.string().min(1, "Data de nascimento é obrigatória"),
+	cpf: z.string().regex(/^\d{3}\.?\d{3}\.?\d{3}-?\d{2}$/, "CPF inválido"),
 	address: AddressSchema,
 	status: StatusSchema,
 });

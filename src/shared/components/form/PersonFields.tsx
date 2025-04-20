@@ -12,21 +12,25 @@ export const PersonFields = ({
 			<TextInput
 				label="Nome"
 				{...form.getInputProps("name")}
+				withAsterisk={!readOnly}
 				disabled={readOnly}
 			/>
 			<TextInput
 				label="CPF"
 				{...form.getInputProps("cpf")}
+				withAsterisk={!readOnly}
 				disabled={readOnly}
 			/>
 			<TextInput
 				label="Data de nascimento"
 				{...form.getInputProps("birthDate")}
+				withAsterisk={!readOnly}
 				disabled={readOnly}
 			/>
 			<TextInput
 				label="Telefone"
 				{...form.getInputProps("phone")}
+				withAsterisk={!readOnly}
 				disabled={readOnly}
 			/>
 			<Select
@@ -36,6 +40,7 @@ export const PersonFields = ({
 					{ value: "inactive", label: "Inativo" },
 				]}
 				{...form.getInputProps("status")}
+				withAsterisk={!readOnly}
 				disabled={readOnly}
 			/>
 		</>
