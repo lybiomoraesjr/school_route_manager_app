@@ -22,7 +22,7 @@ export const PersonFields = ({
 				withAsterisk={
 					!readOnly && isFieldRequired(PersonSchema, "name")
 				}
-				placeholder="José da Silva"
+				placeholder="Ex: José da Silva"
 				disabled={readOnly}
 			/>
 
