@@ -1,7 +1,10 @@
 import { PostalCodeInput } from "@/shared/components/form/inputs/PostalCodeInput";
 import { AddressSchema } from "@/shared/schemas";
+import { fetchAddressByCep } from "@/shared/utils/cep.utils";
 import { isFieldRequired } from "@/shared/utils/zod.utils";
 import { TextInput } from "@mantine/core";
+import { useEffect } from "react";
+import { notifications } from "@mantine/notifications";
 
 export const AddressFields = ({
 	form,
@@ -10,6 +13,29 @@ export const AddressFields = ({
 	form: any;
 	readOnly?: boolean;
 }) => {
+	useEffect(() => {
+		const zipCode = form.values.zipCode;
+
+		if (zipCode && zipCode.replace(/\D/g, "").length === 8) {
+			fetchAddressByCep(zipCode)
+				.then((data) => {
+					form.setValues((prev: any) => ({
+						...prev,
+						street: data.street,
+						neighborhood: data.neighborhood,
+						city: data.city,
+						state: data.state,
+					}));
+				})
+				.catch(() => {
+					notifications.show({
+						color: "red",
+						title: "Erro ao buscar endereço",
+						message: "Verifique se o CEP digitado é válido.",
+					});
+				});
+		}
+	}, [form.values.zipCode]);
 	return (
 		<>
 			<PostalCodeInput
