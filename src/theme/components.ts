@@ -1,37 +1,31 @@
 import type { MantineThemeOverride } from "@mantine/core";
 
 export const components: MantineThemeOverride["components"] = {
-  Button: {
-    defaultProps: {
-      radius: "md",
-      size: "md",
-      variant: "filled",
-    },
-    styles: {
-      root: {
-        fontWeight: 600,
-        textTransform: "uppercase",
-      },
-    },
-  },
+	Button: {
+		defaultProps: {},
+		styles: {
+			root: {},
+		},
+	},
 
-  TextInput: {
-    defaultProps: {
-      radius: "md",
-      size: "md",
-    },
-  },
+	TextInput: {
+		defaultProps: {},
+		styles: {
+			root: {},
+		},
+	},
 
-  PasswordInput: {
-    defaultProps: {
-      radius: "md",
-      size: "md",
-    },
-  },
+	PasswordInput: {
+		defaultProps: {},
+		styles: {
+			root: {},
+		},
+	},
 
-  Modal: {
-    defaultProps: {
-      centered: true,
-    },
-  },
+	Modal: {
+		defaultProps: {},
+		styles: {
+			root: {},
+		},
+	},
 };
