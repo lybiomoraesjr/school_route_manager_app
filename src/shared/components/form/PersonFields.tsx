@@ -5,6 +5,7 @@ import { PersonSchema } from "@/shared/schemas";
 import { Status } from "@/shared/types";
 import { isFieldRequired } from "@/shared/utils/zod.utils";
 import { TextInput, Select } from "@mantine/core";
+import { DateInput } from "@mantine/dates";
 
 export const PersonFields = ({
 	form,
@@ -21,6 +22,7 @@ export const PersonFields = ({
 				withAsterisk={
 					!readOnly && isFieldRequired(PersonSchema, "name")
 				}
+				placeholder="José da Silva"
 				disabled={readOnly}
 			/>
 
@@ -30,14 +32,17 @@ export const PersonFields = ({
 				withAsterisk={!readOnly && isFieldRequired(PersonSchema, "cpf")}
 			/>
 
-			<TextInput
+			<DateInput
 				label="Data de nascimento"
+				placeholder="DD/MM/AAAA"
 				{...form.getInputProps("birthDate")}
 				withAsterisk={
 					!readOnly && isFieldRequired(PersonSchema, "birthDate")
 				}
 				disabled={readOnly}
+				valueFormat="DD/MM/YYYY"
 			/>
+
 			<PhoneInput
 				{...form.getInputProps("phone")}
 				readOnly={readOnly}
