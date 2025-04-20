@@ -41,6 +41,7 @@ export const PersonFields = ({
 				}
 				disabled={readOnly}
 				valueFormat="DD/MM/YYYY"
+				locale="pt-br"
 			/>
 
 			<PhoneInput

@@ -5,6 +5,8 @@ import "@mantine/core/styles.css";
 import "@mantine/dates/styles.css";
 import "./../index.css";
 
+import "@/config/dayjs";
+
 import App from "./App.tsx";
 
 createRoot(document.getElementById("root")!).render(
