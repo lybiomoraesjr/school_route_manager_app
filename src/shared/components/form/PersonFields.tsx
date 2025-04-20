@@ -1,6 +1,4 @@
-import { CellPhoneInput } from "@/shared/components/form/CellPhoneInput";
 import { CpfInput } from "@/shared/components/form/CpfInput";
-import { PhoneInput } from "@/shared/components/form/PhoneInput";
 import { PersonSchema } from "@/shared/schemas";
 import { Status } from "@/shared/types";
 import { isFieldRequired } from "@/shared/utils/zod.utils";
@@ -47,20 +45,6 @@ export const PersonFields = ({
 				mask="00/00/0000"
 			/>
 
-			<PhoneInput
-				{...form.getInputProps("phone")}
-				readOnly={readOnly}
-				withAsterisk={
-					!readOnly && isFieldRequired(PersonSchema, "phone")
-				}
-			/>
-			<CellPhoneInput
-				{...form.getInputProps("cellPhone")}
-				readOnly={readOnly}
-				withAsterisk={
-					!readOnly && isFieldRequired(PersonSchema, "cellphone")
-				}
-			/>
 			<Select
 				label="Status"
 				data={[
