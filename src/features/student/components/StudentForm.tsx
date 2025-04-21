@@ -30,9 +30,9 @@ export const StudentForm = () => {
 				handleSubmit();
 			}}
 		>
-			<PersonFields readOnly={false} form={personForm} />
-			<ContactFields form={personForm} />
-			<AddressFields form={addressForm} />
+			<PersonFields form={personForm} readOnly={false} />
+			<ContactFields form={personForm} readOnly={false} />
+			<AddressFields form={addressForm} readOnly={false} />
 			<Button type="submit">Salvar aluno</Button>
 		</form>
 	);

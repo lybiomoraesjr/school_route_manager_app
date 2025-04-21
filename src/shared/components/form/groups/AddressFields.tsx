@@ -4,9 +4,9 @@ import { fetchAddressByCep } from "@/shared/utils/cep.utils";
 import { isFieldRequired } from "@/shared/utils/zod.utils";
 import { Select, TextInput } from "@mantine/core";
 import { useEffect } from "react";
-import { notifications } from "@mantine/notifications";
 import { BRAZILIAN_STATES } from "@/shared/constants/br-states.constants";
 import { unmaskCep } from "@/shared/utils/format.utils";
+import { notifyError } from "@/shared/utils/notification.utils";
 
 export const AddressFields = ({
 	form,
@@ -33,11 +33,10 @@ export const AddressFields = ({
 					state: data.state,
 				}));
 			} catch (err) {
-				notifications.show({
-					color: "red",
-					title: "Erro ao buscar endereço",
-					message: "Verifique se o CEP digitado é válido.",
-				});
+				notifyError(
+					"Erro ao buscar endereço",
+					"Verifique se o CEP digitado é válido."
+				);
 			}
 		};
 
