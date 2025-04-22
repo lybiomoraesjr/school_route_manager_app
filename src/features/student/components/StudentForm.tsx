@@ -5,11 +5,17 @@ import { AddressFields } from "@/shared/components/form/groups/AddressFields";
 import { Button } from "@mantine/core";
 import { ContactFields } from "@/shared/components/form/groups/ContactFields";
 
-export const StudentForm = () => {
+type StudentFormProps = {
+	onSubmit?: () => void;
+	readOnly?: boolean;
+};
+
+export const StudentForm = ({ onSubmit, readOnly }: StudentFormProps) => {
 	const personForm = usePersonForm();
 	const addressForm = useAddressForm();
 
 	const handleSubmit = () => {
+		console.log("handleSubmit");
 		const personValid = personForm.validate();
 		const addressValid = addressForm.validate();
 
@@ -18,6 +24,8 @@ export const StudentForm = () => {
 				...personForm.values,
 				address: addressForm.values,
 			};
+
+			onSubmit?.();
 
 			console.log("Formulário válido:", fullData);
 		}
@@ -30,10 +38,11 @@ export const StudentForm = () => {
 				handleSubmit();
 			}}
 		>
-			<PersonFields form={personForm} readOnly={false} />
-			<ContactFields form={personForm} readOnly={false} />
-			<AddressFields form={addressForm} readOnly={false} />
-			<Button type="submit">Salvar aluno</Button>
+			<PersonFields form={personForm} readOnly={readOnly} />
+			<ContactFields form={personForm} readOnly={readOnly} />
+			<AddressFields form={addressForm} readOnly={readOnly} />
+
+			{!readOnly && <Button type="submit">Salvar aluno</Button>}
 		</form>
 	);
 };

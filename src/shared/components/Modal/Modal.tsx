@@ -16,6 +16,7 @@ export const Modal: React.FC<ModalProps> = ({ children, ...modalProps }) => {
 			fullScreen={isMobile}
 			transitionProps={{ transition: "fade", duration: 200 }}
 			centered
+			size="80%"
 			{...modalProps}
 		>
 			{children}

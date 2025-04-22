@@ -44,6 +44,7 @@ export const PersonFields = ({
 				locale="pt-br"
 				component={IMaskInput}
 				mask="00/00/0000"
+				maxDate={new Date()}
 			/>
 
 			<Select
