@@ -7,8 +7,9 @@ export const usePersonForm = (initialValues?: Partial<Person>) => {
 		initialValues: {
 			name: "",
 			cpf: "",
-			birthDate: "",
-			phone: "",
+			birthDate: new Date(),
+			cellphone: "",
+			email: "",
 			status: Status.ACTIVE,
 			address: {
 				street: "",
@@ -17,6 +18,7 @@ export const usePersonForm = (initialValues?: Partial<Person>) => {
 				city: "",
 				zipCode: "",
 				complement: "",
+				state: "",
 			},
 			...initialValues,
 		},
