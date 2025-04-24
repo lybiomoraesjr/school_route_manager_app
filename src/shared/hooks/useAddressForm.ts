@@ -8,6 +8,7 @@ export const useAddressForm = (initialValues?: Partial<Address>) => {
 			number: "",
 			neighborhood: "",
 			city: "",
+			state: "",
 			zipCode: "",
 			complement: "",
 			...initialValues,

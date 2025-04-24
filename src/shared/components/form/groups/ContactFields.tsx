@@ -1,30 +1,43 @@
+import { UseFormReturnType } from "@mantine/form";
+import { TextInput } from "@mantine/core";
 import { PhoneInput } from "@/shared/components/form/inputs/PhoneInput";
 import { CellPhoneInput } from "@/shared/components/form/inputs/CellPhoneInput";
 import { isFieldRequired } from "@/shared/utils/zod.utils";
-import { PersonSchema } from "@/shared/schemas";
+import { Contact, ContactSchema } from "@/shared/schemas/fields/contact.schema";
+
+export type ContactFieldsProps = {
+	form: UseFormReturnType<Contact>;
+	readOnly?: boolean;
+};
 
 export const ContactFields = ({
 	form,
 	readOnly = false,
-}: {
-	form: any;
-	readOnly?: boolean;
-}) => {
+}: ContactFieldsProps) => {
 	return (
 		<>
 			<PhoneInput
 				{...form.getInputProps("phone")}
 				readOnly={readOnly}
 				withAsterisk={
-					!readOnly && isFieldRequired(PersonSchema, "phone")
+					!readOnly && isFieldRequired(ContactSchema, "phone")
 				}
 			/>
 			<CellPhoneInput
 				{...form.getInputProps("cellphone")}
 				readOnly={readOnly}
 				withAsterisk={
-					!readOnly && isFieldRequired(PersonSchema, "cellphone")
+					!readOnly && isFieldRequired(ContactSchema, "cellphone")
 				}
+			/>
+			<TextInput
+				label="E-mail"
+				{...form.getInputProps("email")}
+				readOnly={readOnly}
+				withAsterisk={
+					!readOnly && isFieldRequired(ContactSchema, "email")
+				}
+				placeholder="Ex: jose@email.com"
 			/>
 		</>
 	);

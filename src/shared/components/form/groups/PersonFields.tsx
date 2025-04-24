@@ -1,16 +1,16 @@
-import { SimpleGrid, TextInput, Select } from "@mantine/core";
+import { SimpleGrid, TextInput } from "@mantine/core";
 import { DateInput } from "@mantine/dates";
 import { CpfInput } from "@/shared/components/form/inputs/CpfInput";
 import { IMaskInput } from "react-imask";
-import { PersonSchema } from "@/shared/schemas";
-import { Status } from "@/shared/types";
 import { isFieldRequired } from "@/shared/utils/zod.utils";
 import { useResponsive } from "@/shared/hooks/useResponsive";
+import { UseFormReturnType } from "@mantine/form";
+import { Person, PersonSchema } from "@/shared/schemas";
 export const PersonFields = ({
 	form,
 	readOnly = false,
 }: {
-	form: any;
+	form: UseFormReturnType<Partial<Person>>;
 	readOnly?: boolean;
 }) => {
 	const { isMobile } = useResponsive();
@@ -43,21 +43,7 @@ export const PersonFields = ({
 				valueFormat="DD/MM/YYYY"
 				locale="pt-br"
 				component={IMaskInput}
-				mask="00/00/0000"
 				maxDate={new Date()}
-			/>
-
-			<Select
-				label="Status"
-				data={[
-					{ value: `${Status.ACTIVE}`, label: "Ativo" },
-					{ value: `${Status.INACTIVE}`, label: "Inativo" },
-				]}
-				{...form.getInputProps("status")}
-				withAsterisk={
-					!readOnly && isFieldRequired(PersonSchema, "status")
-				}
-				disabled={readOnly}
 			/>
 		</SimpleGrid>
 	);
