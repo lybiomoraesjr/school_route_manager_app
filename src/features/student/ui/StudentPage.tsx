@@ -8,6 +8,18 @@ import { useState } from "react";
 
 const StudentPage = () => {
 	const [opened, setOpened] = useState(false);
+
+	const handleSubmit = async () => {
+		try {
+			setTimeout(() => {}, 2000);
+
+			setOpened(false);
+		} catch (error) {
+			console.error(error);
+		} finally {
+		}
+	};
+
 	return (
 		<Container fluid>
 			<Flex justify="flex-end">
@@ -26,7 +38,7 @@ const StudentPage = () => {
 				onClose={() => setOpened(false)}
 				title="Cadastrar Aluno"
 			>
-				<StudentForm onSubmit={() => setOpened(false)} />
+				<StudentForm onSubmit={handleSubmit} />
 			</Modal>
 		</Container>
 	);

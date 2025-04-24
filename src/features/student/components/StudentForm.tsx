@@ -2,11 +2,11 @@ import { usePersonForm } from "@/shared/hooks/usePersonForm";
 import { useAddressForm } from "@/shared/hooks/useAddressForm";
 import { PersonFields } from "@/shared/components/form/groups/PersonFields";
 import { AddressFields } from "@/shared/components/form/groups/AddressFields";
-import { Button } from "@mantine/core";
+import { Button, Flex } from "@mantine/core";
 import { ContactFields } from "@/shared/components/form/groups/ContactFields";
 
 type StudentFormProps = {
-	onSubmit?: () => void;
+	onSubmit?: (data: any) => Promise<void>;
 	readOnly?: boolean;
 };
 
@@ -14,7 +14,7 @@ export const StudentForm = ({ onSubmit, readOnly }: StudentFormProps) => {
 	const personForm = usePersonForm();
 	const addressForm = useAddressForm();
 
-	const handleSubmit = () => {
+	const handleSubmit = async () => {
 		console.log("handleSubmit");
 		const personValid = personForm.validate();
 		const addressValid = addressForm.validate();
@@ -25,7 +25,7 @@ export const StudentForm = ({ onSubmit, readOnly }: StudentFormProps) => {
 				address: addressForm.values,
 			};
 
-			onSubmit?.();
+			await onSubmit?.(fullData);
 
 			console.log("Formulário válido:", fullData);
 		}
@@ -42,7 +42,9 @@ export const StudentForm = ({ onSubmit, readOnly }: StudentFormProps) => {
 			<ContactFields form={personForm} readOnly={readOnly} />
 			<AddressFields form={addressForm} readOnly={readOnly} />
 
-			{!readOnly && <Button type="submit">Salvar aluno</Button>}
+			<Flex justify="flex-end" mt="md">
+				{!readOnly && <Button type="submit">Salvar aluno</Button>}
+			</Flex>
 		</form>
 	);
 };
