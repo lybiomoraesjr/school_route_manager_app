@@ -15,7 +15,7 @@ export const PersonFields = ({
 }) => {
 	const { isMobile } = useResponsive();
 	return (
-		<SimpleGrid cols={isMobile ? 1 : 2} spacing="md">
+		<SimpleGrid cols={isMobile ? 1 : 3} spacing="md">
 			<TextInput
 				label="Nome"
 				{...form.getInputProps("name")}

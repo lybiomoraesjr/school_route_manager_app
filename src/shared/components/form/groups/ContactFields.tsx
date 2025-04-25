@@ -1,9 +1,10 @@
 import { UseFormReturnType } from "@mantine/form";
-import { TextInput } from "@mantine/core";
+import { SimpleGrid, TextInput } from "@mantine/core";
 import { PhoneInput } from "@/shared/components/form/inputs/PhoneInput";
 import { CellPhoneInput } from "@/shared/components/form/inputs/CellPhoneInput";
 import { isFieldRequired } from "@/shared/utils/zod.utils";
 import { Contact, ContactSchema } from "@/shared/schemas/fields/contact.schema";
+import { useResponsive } from "@/shared/hooks/useResponsive";
 
 export type ContactFieldsProps = {
 	form: UseFormReturnType<Contact>;
@@ -14,31 +15,34 @@ export const ContactFields = ({
 	form,
 	readOnly = false,
 }: ContactFieldsProps) => {
+	const { isMobile } = useResponsive();
 	return (
 		<>
-			<PhoneInput
-				{...form.getInputProps("phone")}
-				readOnly={readOnly}
-				withAsterisk={
-					!readOnly && isFieldRequired(ContactSchema, "phone")
-				}
-			/>
-			<CellPhoneInput
-				{...form.getInputProps("cellphone")}
-				readOnly={readOnly}
-				withAsterisk={
-					!readOnly && isFieldRequired(ContactSchema, "cellphone")
-				}
-			/>
-			<TextInput
-				label="E-mail"
-				{...form.getInputProps("email")}
-				readOnly={readOnly}
-				withAsterisk={
-					!readOnly && isFieldRequired(ContactSchema, "email")
-				}
-				placeholder="Ex: jose@email.com"
-			/>
+			<SimpleGrid cols={isMobile ? 1 : 3} spacing="md">
+				<PhoneInput
+					{...form.getInputProps("phone")}
+					readOnly={readOnly}
+					withAsterisk={
+						!readOnly && isFieldRequired(ContactSchema, "phone")
+					}
+				/>
+				<CellPhoneInput
+					{...form.getInputProps("cellphone")}
+					readOnly={readOnly}
+					withAsterisk={
+						!readOnly && isFieldRequired(ContactSchema, "cellphone")
+					}
+				/>
+				<TextInput
+					label="E-mail"
+					{...form.getInputProps("email")}
+					readOnly={readOnly}
+					withAsterisk={
+						!readOnly && isFieldRequired(ContactSchema, "email")
+					}
+					placeholder="Ex: jose@email.com"
+					/>
+				</SimpleGrid>
 		</>
 	);
 };
