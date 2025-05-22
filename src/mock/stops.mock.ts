@@ -1,4 +1,4 @@
-import { Stop } from "@/features/stop/model/stop.model";
+import { Stop } from "@/features/stop/schema/stop.schema";
 import { schoolsMock } from "@/mock/schools.mock";
 
 export const stopsMock: Stop[] = [
@@ -10,7 +10,8 @@ export const stopsMock: Stop[] = [
 			number: "123",
 			neighborhood: "Bairro 1",
 			city: "São Paulo",
-			zipCode: "12345-678",
+			zipCode: "12345678",
+			state: "SP",
 		},
 		latitude: "-23.5614",
 		longitude: "-46.6917",
@@ -24,7 +25,8 @@ export const stopsMock: Stop[] = [
 			number: "456",
 			neighborhood: "Bairro 2",
 			city: "São Paulo",
-			zipCode: "12345-678",
+			zipCode: "12345678",
+			state: "SP",
 		},
 		latitude: "-23.5614",
 		longitude: "-46.6917",
@@ -38,7 +40,8 @@ export const stopsMock: Stop[] = [
 			number: "789",
 			neighborhood: "Bairro 3",
 			city: "São Paulo",
-			zipCode: "12345-678",
+			zipCode: "12345678",
+			state: "SP",
 		},
 		latitude: "-23.5614",
 		longitude: "-46.6917",
