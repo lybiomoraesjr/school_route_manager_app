@@ -1,5 +1,5 @@
 import { AddressSchema } from "@/shared/schemas/fields/address.schema";
-import { ContactSchema } from "@/shared/schemas/fields/contact.schema";
+import { ContactWithRequiredCellPhoneSchema } from "@/shared/schemas/fields/contact.schema";
 import { StatusSchema } from "@/shared/schemas/fields/status.schema";
 import { isValidCpf } from "@/shared/validators/cpf.validator";
 import { z } from "zod";
@@ -16,7 +16,7 @@ export const PersonSchema = z.object({
 		.refine(isValidCpf, { message: "CPF inválido" }),
 	address: AddressSchema,
 	status: StatusSchema,
-	contact: ContactSchema,
+	contact: ContactWithRequiredCellPhoneSchema,
 });
 
 export type Person = z.infer<typeof PersonSchema>;

@@ -32,10 +32,23 @@ export const OptionalEmailSchema = z
 	.email("Email inválido")
 	.optional();
 
-export const ContactSchema = z.object({
-	phone: z.any(),
-	cellphone: z.any(),
-	email: z.any(),
+// ... existing code ...
+
+export const ContactWithRequiredCellPhoneSchema = z.object({
+	phone: OptionalPhoneSchema,
+	cellphone: RequiredCellPhoneSchema,
+	email: OptionalEmailSchema,
 });
 
-export type Contact = z.infer<typeof ContactSchema>;
+export const ContactWithRequiredPhoneSchema = z.object({
+	phone: RequiredPhoneSchema,
+	cellphone: OptionalCellPhoneSchema,
+	email: OptionalEmailSchema,
+});
+
+export type ContactWithRequiredCellPhone = z.infer<
+	typeof ContactWithRequiredCellPhoneSchema
+>;
+export type ContactWithRequiredPhone = z.infer<
+	typeof ContactWithRequiredPhoneSchema
+>;
