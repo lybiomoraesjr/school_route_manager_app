@@ -1,4 +1,4 @@
-import { Vehicle } from "@/features/vehicles/model/vehicle.model";
+import { Vehicle } from "@/features/vehicles/schema/vehicle.schema";
 import { VehicleType } from "@/features/vehicles/model/vehicle.types";
 import { Status } from "@/shared/types/enums";
 

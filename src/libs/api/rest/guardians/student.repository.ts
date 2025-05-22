@@ -1,5 +1,5 @@
 import { httpClient } from "../api.client";
-import { Guardian } from "@/features/guardian/model/guardian.model";
+import { Guardian } from "@/features/guardian/schema/guardian.schema";
 import { CriarResponsavelDTO, ResponsavelDTO } from "./guardian.repository.dto";
 import { IGuardianRepository } from "@/libs/core/contracts/guardian.repository.contract";
 import { guardianMapper } from "@/libs/api/rest/guardians/student.repository.mapper";

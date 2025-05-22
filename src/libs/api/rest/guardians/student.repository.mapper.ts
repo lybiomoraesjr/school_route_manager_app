@@ -1,4 +1,4 @@
-import { Guardian } from "@/features/guardian/model/guardian.model";
+import { Guardian } from "@/features/guardian/schema/guardian.schema";
 import { CriarResponsavelDTO, ResponsavelDTO } from "./guardian.repository.dto";
 import { statusMapper } from "@/shared/mappers/rest/status.mapper";
 import { addressMapper } from "@/shared/mappers/rest/address.mapper";

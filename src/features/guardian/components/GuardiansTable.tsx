@@ -1,5 +1,5 @@
 import { EntityTable } from "@/shared/components/EntityTable/EntityTable";
-import { Guardian } from "@/features/guardian/model/guardian.model";
+import { Guardian } from "@/features/guardian/schema/guardian.schema";
 
 type GuardiansTableProps = {
 	guardians: Guardian[];

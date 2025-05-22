@@ -1,4 +1,4 @@
-import { Guardian } from "@/features/guardian/model/guardian.model";
+import { Guardian } from "@/features/guardian/schema/guardian.schema";
 
 export interface IGuardianRepository {
 	createGuardian(guardian: Guardian): Promise<void>;
