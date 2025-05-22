@@ -1,4 +1,4 @@
-import { School } from "@/features/school/model/school.model";
+import { School } from "@/features/school/schema/school.schema";
 
 export const schoolsMock: School[] = [
 	{
@@ -9,10 +9,14 @@ export const schoolsMock: School[] = [
 			number: "123",
 			neighborhood: "Bairro 1",
 			city: "São Paulo",
-			zipCode: "12345-678",
+			zipCode: "12345678",
+			state: "SP",
 		},
-		phone: "(11) 99999-9999",
-		email: "escola1@gmail.com",
+		contact: {
+			phone: "11999999999",
+			cellphone: "11988887777",
+			email: "escola1@gmail.com",
+		},
 	},
 	{
 		id: "2",
@@ -22,10 +26,14 @@ export const schoolsMock: School[] = [
 			number: "456",
 			neighborhood: "Bairro 2",
 			city: "São Paulo",
-			zipCode: "12345-678",
+			zipCode: "12345678",
+			state: "SP",
 		},
-		phone: "(11) 98888-7777",
-		email: "escola2@gmail.com",
+		contact: {
+			phone: "11999999999",
+			cellphone: "11988887777",
+			email: "escola2@gmail.com",
+		},
 	},
 	{
 		id: "3",
@@ -35,9 +43,13 @@ export const schoolsMock: School[] = [
 			number: "789",
 			neighborhood: "Bairro 3",
 			city: "São Paulo",
-			zipCode: "12345-678",
+			zipCode: "12345678",
+			state: "SP",
 		},
-		phone: "(11) 98765-4321",
-		email: "escola3@gmail.com",
+		contact: {
+			phone: "11999999999",
+			cellphone: "11988887777",
+			email: "escola3@gmail.com",
+		},
 	},
 ];

@@ -68,6 +68,11 @@ export const ContactConfigs = {
 		cellphone: "optional",
 		email: "optional",
 	} as const,
+	withRequiredPhoneAndEmail: {
+		phone: "required",
+		cellphone: "optional",
+		email: "required",
+	} as const,
 } as const;
 
 export const ContactWithRequiredCellPhoneSchema = createContactSchema(
@@ -86,6 +91,10 @@ export const ContactWithAllOptionalSchema = createContactSchema(
 	ContactConfigs.withAllOptional
 );
 
+export const ContactWithRequiredPhoneAndEmailSchema = createContactSchema(
+	ContactConfigs.withRequiredPhoneAndEmail
+);
+
 export type ContactWithRequiredCellPhone = z.infer<
 	typeof ContactWithRequiredCellPhoneSchema
 >;
@@ -100,4 +109,7 @@ export type ContactWithAllRequired = z.infer<
 >;
 export type ContactWithAllOptional = z.infer<
 	typeof ContactWithAllOptionalSchema
+>;
+export type ContactWithRequiredPhoneAndEmail = z.infer<
+	typeof ContactWithRequiredPhoneAndEmailSchema
 >;
