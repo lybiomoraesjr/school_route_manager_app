@@ -1,15 +1,19 @@
-import { Contact, ContactSchema } from "@/shared/schemas/fields/contact.schema";
+import { useForm, zodResolver, UseFormReturnType } from "@mantine/form";
+import { z } from "zod";
 
-import { useForm, zodResolver } from "@mantine/form";
+export function useContactForm<T extends z.ZodTypeAny>(
+	schema: T,
+	initialValues?: Partial<z.infer<T>>
+): UseFormReturnType<z.infer<T>> {
+	const defaultValues = {
+		phone: "",
+		cellphone: "",
+		email: "",
+		...initialValues,
+	} as z.infer<T>;
 
-export const useContactForm = (initialValues?: Contact) => {
-	return useForm<Contact>({
-		initialValues: {
-			phone: "",
-			cellphone: "",
-			email: "",
-			...initialValues,
-		},
-		validate: zodResolver(ContactSchema),
+	return useForm({
+		initialValues: defaultValues,
+		validate: zodResolver(schema),
 	});
-};
+}

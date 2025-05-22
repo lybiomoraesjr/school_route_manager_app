@@ -5,6 +5,10 @@ import { AddressFields } from "@/shared/components/form/groups/AddressFields";
 import { Button, Flex } from "@mantine/core";
 import { ContactFields } from "@/shared/components/form/groups/ContactFields";
 import { useContactForm } from "@/shared/hooks/useContactForm";
+import {
+	ContactWithRequiredCellPhoneSchema,
+	ContactConfigs,
+} from "@/shared/schemas/fields/contact.schema";
 
 type StudentFormProps = {
 	onSubmit?: (data: any) => Promise<void>;
@@ -14,17 +18,23 @@ type StudentFormProps = {
 export const StudentForm = ({ onSubmit, readOnly }: StudentFormProps) => {
 	const personForm = usePersonForm();
 	const addressForm = useAddressForm();
-	const contactForm = useContactForm();
+	const contactForm = useContactForm(ContactWithRequiredCellPhoneSchema);
 
 	const handleSubmit = async () => {
 		console.log("handleSubmit");
 		const personValid = personForm.validate();
 		const addressValid = addressForm.validate();
+		const contactValid = contactForm.validate();
 
-		if (!personValid.hasErrors && !addressValid.hasErrors) {
+		if (
+			!personValid.hasErrors &&
+			!addressValid.hasErrors &&
+			!contactValid.hasErrors
+		) {
 			const fullData = {
 				...personForm.values,
 				address: addressForm.values,
+				contact: contactForm.values,
 			};
 
 			await onSubmit?.(fullData);
@@ -41,7 +51,11 @@ export const StudentForm = ({ onSubmit, readOnly }: StudentFormProps) => {
 			}}
 		>
 			<PersonFields form={personForm} readOnly={readOnly} />
-			<ContactFields form={contactForm} readOnly={readOnly} />
+			<ContactFields
+				form={contactForm}
+				config={ContactConfigs.withRequiredCellPhone}
+				readOnly={readOnly}
+			/>
 			<AddressFields form={addressForm} readOnly={readOnly} />
 
 			<Flex justify="flex-end" mt="md">

@@ -2,43 +2,44 @@ import { UseFormReturnType } from "@mantine/form";
 import { TextInput } from "@mantine/core";
 import { PhoneInput } from "@/shared/components/form/inputs/PhoneInput";
 import { CellPhoneInput } from "@/shared/components/form/inputs/CellPhoneInput";
-import { isFieldRequired } from "@/shared/utils/zod.utils";
-import { Contact, ContactSchema } from "@/shared/schemas/fields/contact.schema";
+import { ContactFieldConfig } from "@/shared/schemas/fields/contact.schema";
 
-export type ContactFieldsProps = {
-	form: UseFormReturnType<Contact>;
+export type ContactFieldsProps<T> = {
+	form: UseFormReturnType<T>;
+	config: ContactFieldConfig;
 	readOnly?: boolean;
 };
 
-export const ContactFields = ({
+export function ContactFields<T>({
 	form,
+	config,
 	readOnly = false,
-}: ContactFieldsProps) => {
+}: ContactFieldsProps<T>) {
 	return (
 		<>
-			<PhoneInput
-				{...form.getInputProps("phone")}
-				readOnly={readOnly}
-				withAsterisk={
-					!readOnly && isFieldRequired(ContactSchema, "phone")
-				}
-			/>
-			<CellPhoneInput
-				{...form.getInputProps("cellphone")}
-				readOnly={readOnly}
-				withAsterisk={
-					!readOnly && isFieldRequired(ContactSchema, "cellphone")
-				}
-			/>
-			<TextInput
-				label="E-mail"
-				{...form.getInputProps("email")}
-				readOnly={readOnly}
-				withAsterisk={
-					!readOnly && isFieldRequired(ContactSchema, "email")
-				}
-				placeholder="Ex: jose@email.com"
-			/>
+			{config.phone !== "none" && (
+				<PhoneInput
+					{...form.getInputProps("phone")}
+					readOnly={readOnly}
+					withAsterisk={!readOnly && config.phone === "required"}
+				/>
+			)}
+			{config.cellphone !== "none" && (
+				<CellPhoneInput
+					{...form.getInputProps("cellphone")}
+					readOnly={readOnly}
+					withAsterisk={!readOnly && config.cellphone === "required"}
+				/>
+			)}
+			{config.email !== "none" && (
+				<TextInput
+					label="E-mail"
+					{...form.getInputProps("email")}
+					readOnly={readOnly}
+					withAsterisk={!readOnly && config.email === "required"}
+					placeholder="Ex: jose@email.com"
+				/>
+			)}
 		</>
 	);
-};
+}
