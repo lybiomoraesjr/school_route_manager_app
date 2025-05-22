@@ -1,3 +1,3 @@
-import { Person } from "@/shared/models/person.model";
+import { Person } from "@/shared/schemas";
 
 export interface Monitor extends Person {}

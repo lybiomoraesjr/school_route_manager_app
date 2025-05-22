@@ -5,6 +5,7 @@ import { isValidCpf } from "@/shared/validators/cpf.validator";
 import { z } from "zod";
 
 export const PersonSchema = z.object({
+	id: z.string(),
 	name: z.string().min(1, "Nome é obrigatório"),
 	birthDate: z.date({
 		required_error: "Data de nascimento é obrigatória",
