@@ -2,13 +2,14 @@ import { usePersonForm } from "@/shared/hooks/usePersonForm";
 import { useAddressForm } from "@/shared/hooks/useAddressForm";
 import { PersonFields } from "@/shared/components/form/groups/PersonFields";
 import { AddressFields } from "@/shared/components/form/groups/AddressFields";
-import { Button, Flex } from "@mantine/core";
+import { Button, Flex, Select } from "@mantine/core";
 import { ContactFields } from "@/shared/components/form/groups/ContactFields";
 import { useContactForm } from "@/shared/hooks/useContactForm";
 import {
 	ContactWithRequiredCellPhoneSchema,
 	ContactConfigs,
 } from "@/shared/schemas/fields/contact.schema";
+import { Status } from "@/shared/types";
 
 type StudentFormProps = {
 	onSubmit?: (data: any) => Promise<void>;
@@ -57,6 +58,16 @@ export const StudentForm = ({ onSubmit, readOnly }: StudentFormProps) => {
 				readOnly={readOnly}
 			/>
 			<AddressFields form={addressForm} readOnly={readOnly} />
+			<Select
+				label="Status"
+				data={[
+					{ value: `${Status.ACTIVE}`, label: "Ativo" },
+					{ value: `${Status.INACTIVE}`, label: "Inativo" },
+				]}
+				{...personForm.getInputProps("status")}
+				withAsterisk={!readOnly}
+				disabled={readOnly}
+			/>
 
 			<Flex justify="flex-end" mt="md">
 				{!readOnly && <Button type="submit">Salvar aluno</Button>}
