@@ -9,6 +9,7 @@ interface BaseAlunoDTO {
 	endereco: EnderecoDTO;
 	status: StatusAPI;
 	guardianId: string;
+	email: string;
 }
 
 export interface CriarAlunoDTO extends BaseAlunoDTO {}
