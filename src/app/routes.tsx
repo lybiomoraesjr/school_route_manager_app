@@ -12,12 +12,11 @@ import StopPage from "@/features/stop/ui/StopPage";
 import RoutePage from "@/features/route/ui/RoutePage";
 import GuardianPage from "@/features/guardian/ui/GuardianPage";
 import { AppRoutes } from "@/shared/constants/routes.constants";
-import { useContext } from "react";
-import { AuthContext } from "@/shared/context/AuthContext";
-
-const { user } = useContext(AuthContext);
+import { useAuth } from "@/shared/hooks";
 
 const PrivateRoute = () => {
+	const { user } = useAuth();
+
 	return user ? (
 		<Layout user={user}>
 			<Outlet />
@@ -28,6 +27,8 @@ const PrivateRoute = () => {
 };
 
 const PublicRoute = () => {
+	const { user } = useAuth();
+
 	return user ? <Navigate to={AppRoutes.HOME} /> : <Outlet />;
 };
 

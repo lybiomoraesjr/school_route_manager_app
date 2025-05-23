@@ -1,6 +1,6 @@
 import { User } from "@/features/auth/model/user.model";
 import { UserRole } from "@/features/auth/model/user.types";
-import { createContext, ReactNode, useState } from "react";
+import { createContext, ReactNode, useEffect, useState } from "react";
 
 export type AuthContextDataProps = {
 	user: User;
@@ -17,10 +17,12 @@ type AuthContextProviderProps = {
 export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
 	const [user, setUser] = useState<User>({} as User);
 
-	setUser({
-		id: "1",
-		role: UserRole.ADMIN,
-	});
+	useEffect(() => {
+		setUser({
+			id: "1",
+			role: UserRole.ADMIN,
+		});
+	}, []);
 
 	return (
 		<AuthContext.Provider
