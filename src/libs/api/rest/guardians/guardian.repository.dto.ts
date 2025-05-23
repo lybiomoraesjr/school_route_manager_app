@@ -8,6 +8,7 @@ interface BaseResponsavelDTO {
 	dataNascimento: string;
 	endereco: EnderecoDTO;
 	status: StatusAPI;
+	email: string;
 }
 
 export interface CriarResponsavelDTO extends BaseResponsavelDTO {}
