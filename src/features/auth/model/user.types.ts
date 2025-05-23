@@ -1,7 +1,7 @@
 export enum UserRole {
+	ADMIN = "admin",
 	STUDENT = "student",
 	GUARDIAN = "guardian",
-	SECRETARY = "secretary",
 	DRIVER = "driver",
 	MONITOR = "monitor",
 	SCHOOL = "school",

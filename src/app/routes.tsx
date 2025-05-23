@@ -12,12 +12,14 @@ import StopPage from "@/features/stop/ui/StopPage";
 import RoutePage from "@/features/route/ui/RoutePage";
 import GuardianPage from "@/features/guardian/ui/GuardianPage";
 import { AppRoutes } from "@/shared/constants/routes.constants";
+import { useContext } from "react";
+import { AuthContext } from "@/shared/context/AuthContext";
 
-const user = true;
+const { user } = useContext(AuthContext);
 
 const PrivateRoute = () => {
 	return user ? (
-		<Layout>
+		<Layout user={user}>
 			<Outlet />
 		</Layout>
 	) : (

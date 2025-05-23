@@ -1,28 +1,34 @@
-import { UserDTO } from "@/dtos/user.dto";
+import { User } from "@/features/auth/model/user.model";
+import { UserRole } from "@/features/auth/model/user.types";
 import { createContext, ReactNode, useState } from "react";
 
 export type AuthContextDataProps = {
-  user: UserDTO;
+	user: User;
 };
 
 export const AuthContext = createContext<AuthContextDataProps>(
-  {} as AuthContextDataProps
+	{} as AuthContextDataProps
 );
 
 type AuthContextProviderProps = {
-  children: ReactNode;
+	children: ReactNode;
 };
 
 export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
-  const [user, setUser] = useState<UserDTO>({} as UserDTO);
+	const [user, setUser] = useState<User>({} as User);
 
-  return (
-    <AuthContext.Provider
-      value={{
-        user,
-      }}
-    >
-      {children}
-    </AuthContext.Provider>
-  );
+	setUser({
+		id: "1",
+		role: UserRole.ADMIN,
+	});
+
+	return (
+		<AuthContext.Provider
+			value={{
+				user,
+			}}
+		>
+			{children}
+		</AuthContext.Provider>
+	);
 };
