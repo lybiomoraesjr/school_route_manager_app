@@ -1,18 +1,18 @@
 import { useResponsive } from "@/shared/hooks/useResponsive";
-import {
-	Modal as MantineModal,
-	type ModalProps as MantineModalProps,
-} from "@mantine/core";
+import { Modal, type ModalProps } from "@mantine/core";
 import { ReactNode } from "react";
 
-type ModalProps = MantineModalProps & {
+type BaseModalProps = ModalProps & {
 	children: ReactNode;
 };
 
-export const Modal: React.FC<ModalProps> = ({ children, ...modalProps }) => {
+export const BaseModal: React.FC<BaseModalProps> = ({
+	children,
+	...modalProps
+}) => {
 	const { isMobile } = useResponsive();
 	return (
-		<MantineModal
+		<Modal
 			fullScreen={isMobile}
 			transitionProps={{ transition: "fade", duration: 200 }}
 			centered
@@ -20,6 +20,6 @@ export const Modal: React.FC<ModalProps> = ({ children, ...modalProps }) => {
 			{...modalProps}
 		>
 			{children}
-		</MantineModal>
+		</Modal>
 	);
 };

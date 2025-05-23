@@ -1,7 +1,7 @@
 import { StudentForm } from "@/features/student/components/StudentForm";
 import { StudentsTable } from "@/features/student/components/StudentsTable";
 import { studentsMock } from "@/mock/students.mock";
-import { Modal } from "@/shared/components/Modal/Modal";
+import { BaseModal } from "@/shared/components/Modal/BaseModal";
 import { Button, Container, Flex } from "@mantine/core";
 import { Plus } from "phosphor-react";
 import { useState } from "react";
@@ -33,13 +33,13 @@ const StudentPage = () => {
 
 			<StudentsTable students={studentsMock} />
 
-			<Modal
+			<BaseModal
 				opened={opened}
 				onClose={() => setOpened(false)}
 				title="Cadastrar Aluno"
 			>
 				<StudentForm onSubmit={handleSubmit} />
-			</Modal>
+			</BaseModal>
 		</Container>
 	);
 };

@@ -1,5 +1,5 @@
 import { UserRole } from "@/features/auth/model/user.types";
-import { SidebarLinksByRole } from "@/shared/constants/sidebar-links";
+import { SidebarLinksByRole } from "@/shared/constants/sidebar-links.constants";
 import { Stack, NavLink } from "@mantine/core";
 
 import { useNavigate } from "react-router-dom";
@@ -8,7 +8,7 @@ type SidebarProps = {
 	role: UserRole;
 };
 
-export const Sidebar: React.FC<SidebarProps> = ({ role = UserRole.ADMIN }) => {
+export const Sidebar: React.FC<SidebarProps> = ({ role }) => {
 	const navigate = useNavigate();
 	const links = SidebarLinksByRole[role] || [];
 
