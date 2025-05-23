@@ -4,4 +4,5 @@ export enum UserRole {
 	SECRETARY = "secretary",
 	DRIVER = "driver",
 	MONITOR = "monitor",
+	SCHOOL = "school",
 }

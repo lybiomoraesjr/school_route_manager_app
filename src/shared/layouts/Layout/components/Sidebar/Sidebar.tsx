@@ -74,7 +74,6 @@ const RolesLinks = {
 			route: "/escolas",
 		},
 	],
-
 	[roles.MONITOR]: [
 		{
 			label: "Monitores",

@@ -11,6 +11,7 @@ import VehiclePage from "@/features/vehicles/ui/VehiclePage";
 import StopPage from "@/features/stop/ui/StopPage";
 import RoutePage from "@/features/route/ui/RoutePage";
 import GuardianPage from "@/features/guardian/ui/GuardianPage";
+import { AppRoutes } from "@/shared/constants/routes.constants";
 
 const user = true;
 
@@ -20,36 +21,36 @@ const PrivateRoute = () => {
 			<Outlet />
 		</Layout>
 	) : (
-		<Navigate to="/" />
+		<Navigate to={AppRoutes.LOGIN} />
 	);
 };
 
 const PublicRoute = () => {
-	return user ? <Navigate to="/home" /> : <Outlet />;
+	return user ? <Navigate to={AppRoutes.HOME} /> : <Outlet />;
 };
 
-const AppRoutes = () => {
+const AppRoutesComponent = () => {
 	return (
 		<Routes>
 			<Route element={<PublicRoute />}>
-				<Route path="/" element={<LoginPage />} />
+				<Route path={AppRoutes.LOGIN} element={<LoginPage />} />
 			</Route>
 
 			<Route element={<PrivateRoute />}>
-				<Route path="/home" element={<Home />} />
-				<Route path="/motoristas" element={<DriverPage />} />
-				<Route path="/alunos" element={<StudentPage />} />
-				<Route path="/escolas" element={<SchoolPage />} />
-				<Route path="/monitores" element={<MonitorPage />} />
-				<Route path="/veiculos" element={<VehiclePage />} />
-				<Route path="/paradas" element={<StopPage />} />
-				<Route path="/rotas" element={<RoutePage />} />
-				<Route path="/responsaveis" element={<GuardianPage />} />
+				<Route path={AppRoutes.HOME} element={<Home />} />
+				<Route path={AppRoutes.DRIVERS} element={<DriverPage />} />
+				<Route path={AppRoutes.STUDENTS} element={<StudentPage />} />
+				<Route path={AppRoutes.SCHOOLS} element={<SchoolPage />} />
+				<Route path={AppRoutes.MONITORS} element={<MonitorPage />} />
+				<Route path={AppRoutes.VEHICLES} element={<VehiclePage />} />
+				<Route path={AppRoutes.STOPS} element={<StopPage />} />
+				<Route path={AppRoutes.ROUTES} element={<RoutePage />} />
+				<Route path={AppRoutes.GUARDIANS} element={<GuardianPage />} />
 			</Route>
 
-			<Route path="*" element={<NotFoundPage />} />
+			<Route path={AppRoutes.NOT_FOUND} element={<NotFoundPage />} />
 		</Routes>
 	);
 };
 
-export default AppRoutes;
+export default AppRoutesComponent;
