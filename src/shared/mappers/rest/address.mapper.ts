@@ -10,6 +10,7 @@ export const addressMapper = {
 			city: dto.cidade,
 			zipCode: dto.cep,
 			complement: dto.complemento,
+			state: dto.estado,
 		};
 	},
 
@@ -21,6 +22,7 @@ export const addressMapper = {
 			cidade: address.city,
 			cep: address.zipCode,
 			complemento: address.complement,
+			estado: address.state,
 		};
 	},
 };

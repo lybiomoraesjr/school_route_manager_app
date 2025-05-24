@@ -5,4 +5,5 @@ export interface EnderecoDTO {
 	cidade: string;
 	cep: string;
 	complemento?: string;
+	estado: string;
 }
