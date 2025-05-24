@@ -1,4 +1,4 @@
-import { Vehicle } from "@/features/vehicles/schema/vehicle.schema";
+import { Vehicle } from "@/features/vehicles/model/vehicle.schema";
 import { EntityTable } from "@/shared/components/EntityTable/EntityTable";
 
 type VehiclesTableProps = {

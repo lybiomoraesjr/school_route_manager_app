@@ -1,4 +1,4 @@
-import { School } from "@/features/school/schema/school.schema";
+import { School } from "@/features/school/model/school.schema";
 
 export const schoolsMock: School[] = [
 	{

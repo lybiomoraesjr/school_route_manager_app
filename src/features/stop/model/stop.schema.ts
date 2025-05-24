@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { AddressSchema } from "@/shared/schemas";
-import { SchoolSchema } from "@/features/school/schema/school.schema";
+import { SchoolSchema } from "@/features/school/model/school.schema";
 
 export const StopSchema = z.object({
 	id: z.string(),

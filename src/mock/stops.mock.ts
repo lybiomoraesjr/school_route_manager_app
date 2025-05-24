@@ -1,4 +1,4 @@
-import { Stop } from "@/features/stop/schema/stop.schema";
+import { Stop } from "@/features/stop/model/stop.schema";
 import { schoolsMock } from "@/mock/schools.mock";
 
 export const stopsMock: Stop[] = [

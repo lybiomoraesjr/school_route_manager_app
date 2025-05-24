@@ -1,4 +1,5 @@
 export const API_ROUTES = {
+	AUTH: "/auth",
 	GUARDIANS: "/responsaveis",
 	STUDENTS: "/alunos",
 	VEHICLES: "/veiculos",

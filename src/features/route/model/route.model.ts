@@ -1,7 +1,7 @@
-import { Driver } from "@/features/driver/schema/driver.schema";
-import { School } from "@/features/school/model/school.model";
-import { Stop } from "@/features/stop/model/stop.model";
-import { Vehicle } from "@/features/vehicles/schema/vehicle.schema";
+import { Driver } from "@/features/driver/model/driver.schema";
+import { School } from "@/features/school/model/school.schema";
+import { Stop } from "@/features/stop/model/stop.schema";
+import { Vehicle } from "@/features/vehicles/model/vehicle.schema";
 
 export interface Route {
 	id: string;

@@ -1,6 +1,6 @@
 import { BrowserRouter } from "react-router-dom";
 
-import { AuthContextProvider } from "@/shared/context";
+import { AuthContextProvider } from "@/features/auth/context/AuthContext";
 
 import { MantineProvider } from "@mantine/core";
 import { DatesProvider } from "@mantine/dates";

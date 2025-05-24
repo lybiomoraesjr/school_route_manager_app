@@ -1,4 +1,4 @@
-import { Student } from "@/features/student/schema/student.schema";
+import { Student } from "@/features/student/model/student.schema";
 import { Status } from "@/shared/types/enums";
 
 export const studentsMock: Student[] = [

@@ -1,5 +1,5 @@
 import { IGuardianRepository } from "@/libs/core/contracts/guardian.repository.contract";
-import { Guardian } from "../schema/guardian.schema";
+import { Guardian } from "../model/guardian.schema";
 
 export class GuardianService {
 	constructor(private readonly repository: IGuardianRepository) {}

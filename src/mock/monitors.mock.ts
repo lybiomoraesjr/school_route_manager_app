@@ -1,4 +1,4 @@
-import { Monitor } from "@/features/monitor/schema/monitor.schema";
+import { Monitor } from "@/features/monitor/model/monitor.schema";
 import { Status } from "@/shared/types/enums";
 
 export const monitorsMock: Monitor[] = [

@@ -2,7 +2,7 @@ import { httpClient } from "../api.client";
 import { studentMapper } from "./student.repository.mapper";
 import { CriarAlunoDTO, AlunoDTO } from "./student.repository.dto";
 import { IStudentRepository } from "@/libs/core/contracts/student.repository.contract";
-import { Student } from "@/features/student/schema/student.schema";
+import { Student } from "@/features/student/model/student.schema";
 import { API_ROUTES } from "@/libs/api/rest/api.constants";
 
 export class ApiStudentRepository implements IStudentRepository {

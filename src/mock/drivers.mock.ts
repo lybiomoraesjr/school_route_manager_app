@@ -1,4 +1,4 @@
-import { Driver } from "@/features/driver/schema/driver.schema";
+import { Driver } from "@/features/driver/model/driver.schema";
 import { Status } from "@/shared/types/enums";
 
 export const driversMock: Driver[] = [

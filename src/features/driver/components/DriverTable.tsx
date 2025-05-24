@@ -1,5 +1,5 @@
 import { EntityTable } from "@/shared/components/EntityTable/EntityTable";
-import { Driver } from "@/features/driver/schema/driver.schema";
+import { Driver } from "@/features/driver/model/driver.schema";
 
 type DriverTableProps = {
 	drivers: Driver[];

@@ -1,4 +1,4 @@
-import { Student } from "@/features/student/schema/student.schema";
+import { Student } from "@/features/student/model/student.schema";
 import { EntityTable } from "@/shared/components/EntityTable/EntityTable";
 
 type StudentsTableProps = {

@@ -1,5 +1,5 @@
+import { Student } from "@/features/student/model/student.schema";
 import { IStudentRepository } from "@/libs/core/contracts/student.repository.contract";
-import { Student } from "../model/student.model";
 
 export class StudentService {
 	constructor(private readonly api: IStudentRepository) {}
