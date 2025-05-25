@@ -10,15 +10,13 @@ import {
 	getAuthTokenCookie,
 	removeAuthTokenCookie,
 } from "@/libs/storage/cookies/token.storage";
-import { authService } from "@/libs/api/rest/api.provider";
+import { authService } from "@/libs/providers/api.providers";
 import { UserRole } from "@/features/auth/model/user.types";
-
-export type AuthContextDataProps = {
-	user: User;
-	isLoadingUserStorageData: boolean;
-	signIn: (email: string, password: string) => Promise<void>;
-	signOut: () => void;
-};
+import {
+	AuthContextDataProps,
+	SignInParams,
+	StoreSessionParams,
+} from "@/features/auth/context/auth.context.types";
 
 export const AuthContext = createContext<AuthContextDataProps>(
 	{} as AuthContextDataProps
@@ -33,12 +31,12 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
 	const [isLoadingUserStorageData, setIsLoadingUserStorageData] =
 		useState(true);
 
-	// const userAndTokenUpdate = async (userData: User, token: string) => {
-	// 	api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-	// 	setUser(userData);
-	// };
+	const applySession = ({ userData, token }: StoreSessionParams) => {
+		// tokenManager.setToken(token);
+		setUser(userData);
+	};
 
-	const persistUserAndToken = (userData: User, token: string) => {
+	const storeSession = ({ userData, token }: StoreSessionParams) => {
 		try {
 			setIsLoadingUserStorageData(true);
 			saveUserToLocalStorage(userData);
@@ -50,15 +48,15 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
 		}
 	};
 
-	const signIn = async (email: string, password: string) => {
+	const signIn = async ({ email, password }: SignInParams) => {
 		try {
 			setIsLoadingUserStorageData(true);
 			const { user, token } = await authService.authenticate(
 				email,
 				password
 			);
-			persistUserAndToken(user, token);
-			// userAndTokenUpdate(user, token);
+			storeSession({ userData: user, token });
+			// applySession({ userData: user, token });
 		} catch (error) {
 			throw error;
 		} finally {
@@ -79,14 +77,14 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
 		}
 	};
 
-	const loadUserData = async () => {
+	const restoreSession = async () => {
 		try {
 			setIsLoadingUserStorageData(true);
 			const userLogged = getUserFromLocalStorage();
 			const token = getAuthTokenCookie();
 
 			if (token && userLogged) {
-				// userAndTokenUpdate(userLogged, token);
+				setUser(userLogged);
 			}
 		} catch (error) {
 			throw error;
@@ -96,7 +94,7 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
 	};
 
 	useEffect(() => {
-		loadUserData();
+		restoreSession();
 	}, []);
 
 	// TODO: check if the token is valid and update the user, if not, log the user out
@@ -104,6 +102,8 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
 	// 	const unsubscribe = api.registerInterceptTokenManager(signOut);
 	// 	return () => unsubscribe();
 	// }, [signOut]);
+
+	// TODO: refresh token if it's expired
 
 	useEffect(() => {
 		setUser({

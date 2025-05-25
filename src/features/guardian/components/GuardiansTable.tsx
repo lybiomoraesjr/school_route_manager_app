@@ -25,10 +25,6 @@ export const GuardiansTable: React.FC<GuardiansTableProps> = ({
 					accessor: "cpf",
 					title: "CPF",
 				},
-				{
-					accessor: "birthDate",
-					title: "Data de nascimento",
-				},
 			]}
 		/>
 	);
