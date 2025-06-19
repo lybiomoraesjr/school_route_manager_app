@@ -1,0 +1,123 @@
+LICENÇA PROPRIETÁRIA - SCHOOL ROUTE MANAGER
+============================================
+
+Copyright (c) 2024 Arthur de Faria, Inácio Fernandes Santana, 
+João Paulo Pereira Costa, Lybio Croton de Moraes Junior
+
+Todos os direitos reservados.
+
+PROPRIEDADE INTELECTUAL
+======================
+
+Este software, incluindo mas não se limitando ao código fonte, documentação, 
+design, interface gráfica, algoritmos, estrutura de dados, funcionalidades e 
+qualquer outro elemento relacionado ao "School Route Manager" (Sistema de 
+Gerenciamento de Rotas Escolares), é propriedade intelectual exclusiva dos 
+desenvolvedores mencionados acima.
+
+TERMOS E CONDIÇÕES
+==================
+
+1. PROIBIÇÕES
+-------------
+É expressamente PROIBIDO:
+
+a) Reproduzir, distribuir, transmitir, exibir, executar, modificar, 
+   adaptar, traduzir, criar trabalhos derivados ou de qualquer forma 
+   utilizar este software sem autorização escrita prévia dos proprietários;
+
+b) Engenharia reversa, descompilação, desmontagem ou tentativa de 
+   extrair o código fonte do software;
+
+c) Remover, alterar ou obscurecer qualquer aviso de direitos autorais, 
+   marcas comerciais ou outros avisos de propriedade intelectual;
+
+d) Utilizar este software para fins comerciais sem licenciamento adequado;
+
+e) Sublicenciar, vender, alugar, emprestar ou transferir qualquer 
+   direito sobre este software;
+
+f) Utilizar este software em violação de leis aplicáveis.
+
+2. LICENCIAMENTO COMERCIAL
+--------------------------
+Para utilização comercial deste software, é necessário:
+
+a) Contato prévio com os proprietários para negociação de licenciamento;
+b) Assinatura de contrato de licenciamento específico;
+c) Pagamento das taxas de licenciamento acordadas;
+d) Cumprimento de todas as condições estabelecidas no contrato.
+
+3. RESPONSABILIDADES
+--------------------
+Os proprietários não se responsabilizam por:
+
+a) Danos diretos, indiretos, incidentais, especiais ou consequenciais 
+   decorrentes do uso ou impossibilidade de uso do software;
+
+b) Perda de dados, lucros, negócios ou informações;
+
+c) Interrupção do serviço ou falhas de funcionamento;
+
+d) Problemas de compatibilidade com outros sistemas ou software.
+
+4. GARANTIAS
+------------
+O software é fornecido "COMO ESTÁ", sem garantias de qualquer natureza, 
+expressas ou implícitas, incluindo mas não se limitando a:
+
+a) Garantias de comercialização;
+b) Garantias de adequação a um propósito específico;
+c) Garantias de não violação de direitos de terceiros;
+d) Garantias de funcionamento ininterrupto ou livre de erros.
+
+5. VIOLAÇÕES
+------------
+Em caso de violação desta licença:
+
+a) Os direitos de uso serão automaticamente revogados;
+b) Os proprietários poderão tomar medidas legais cabíveis;
+c) O infrator será responsável por todos os danos causados;
+d) Poderá ser exigida indenização por perdas e danos.
+
+6. DISPOSIÇÕES GERAIS
+---------------------
+a) Esta licença é regida pelas leis brasileiras;
+b) Qualquer disputa será resolvida no foro da comarca de Bragança Paulista/SP;
+c) Se qualquer disposição desta licença for considerada inválida, 
+   as demais disposições permanecerão em vigor;
+d) Esta licença constitui o acordo completo entre as partes.
+
+CONTATO PARA LICENCIAMENTO
+==========================
+
+Para informações sobre licenciamento comercial, entre em contato:
+
+Equipe de Desenvolvimento:
+- Arthur de Faria (BP3038289)
+- Inácio Fernandes Santana (BP3039307)
+- João Paulo Pereira Costa (BP3039331)
+- Lybio Croton de Moraes Junior (BP303934X)
+
+Instituição:
+Instituto Federal de Educação, Ciência e Tecnologia São Paulo
+Campus Bragança Paulista
+Tecnologia em Análise e Desenvolvimento de Sistemas
+
+Localização: Bragança Paulista, SP - Brasil
+Ano: 2024
+
+---
+
+AVISO IMPORTANTE
+================
+
+Este software foi desenvolvido como projeto acadêmico pelos alunos do IFSP 
+Campus Bragança Paulista. Para utilização em ambiente de produção ou 
+comercialização, é obrigatório o licenciamento adequado.
+
+A violação desta licença pode resultar em ações legais e penalidades 
+previstas na legislação brasileira sobre direitos autorais e propriedade 
+intelectual.
+
+© 2024 - Todos os direitos reservados. 
