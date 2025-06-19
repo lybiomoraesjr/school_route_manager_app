@@ -30,6 +30,8 @@ O **School Route Manager** é uma aplicação web moderna desenvolvida para info
 **Campus Bragança Paulista**  
 **Tecnologia em Análise e Desenvolvimento de Sistemas**
 
+**Endereço:** Av. Maj. Fernando Valle, 2013 - São Miguel, Bragança Paulista - SP, 12903-000
+
 ### 👥 Equipe de Desenvolvimento
 
 - **Arthur de Faria** - BP3038289
@@ -284,6 +286,8 @@ Para informações sobre licenciamento comercial, entre em contato conosco.
 **Instituto Federal de Educação, Ciência e Tecnologia São Paulo**  
 **Campus Bragança Paulista**  
 **Tecnologia em Análise e Desenvolvimento de Sistemas**
+
+**Endereço:** Av. Maj. Fernando Valle, 2013 - São Miguel, Bragança Paulista - SP, 12903-000
 
 ### Informações do Projeto
 

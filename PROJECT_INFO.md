@@ -11,6 +11,8 @@ O **School Route Manager** é uma solução web completa e moderna para gerencia
 **Curso:** Tecnologia em Análise e Desenvolvimento de Sistemas  
 **Ano:** 2025
 
+**Endereço:** Av. Maj. Fernando Valle, 2013 - São Miguel, Bragança Paulista - SP, 12903-000
+
 ### 👥 Equipe de Desenvolvimento
 
 - **Arthur de Faria** - BP3038289
@@ -198,7 +200,8 @@ O **School Route Manager** é uma solução web completa e moderna para gerencia
 **Instituição:**
 Instituto Federal de Educação, Ciência e Tecnologia São Paulo  
 Campus Bragança Paulista  
-Tecnologia em Análise e Desenvolvimento de Sistemas
+Tecnologia em Análise e Desenvolvimento de Sistemas  
+**Endereço:** Av. Maj. Fernando Valle, 2013 - São Miguel, Bragança Paulista - SP, 12903-000
 
 **Localização:** Bragança Paulista, SP - Brasil
 
