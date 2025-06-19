@@ -10,7 +10,8 @@
 		"preview": "vite preview",
 		"format": "prettier --write .",
 		"prepare": "chmod +x .husky/*",
-		"deploy": "yarn build && gh-pages -d dist"
+		"predeploy": "yarn build",
+		"deploy": "gh-pages -d dist -u \"github-actions-bot <support+actions@github.com>\""
 	},
 	"dependencies": {
 		"@mantine/core": "^7.17.4",
