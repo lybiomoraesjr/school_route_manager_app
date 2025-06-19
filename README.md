@@ -271,9 +271,13 @@ Para informações sobre licenciamento comercial, entre em contato conosco.
 ### Equipe de Desenvolvimento
 
 - **Arthur de Faria** - BP3038289
+    - Email: arthur.faria@aluno.ifsp.edu.br
 - **Inácio Fernandes Santana** - BP3039307
+    - Email: inacio.fernandes@aluno.ifsp.edu.br
 - **João Paulo Pereira Costa** - BP3039331
+    - Email: paulo.costa1@aluno.ifsp.edu.br
 - **Lybio Croton de Moraes Junior** - BP303934X
+    - Email: j.lybio@aluno.ifsp.edu.br
 
 ### Instituição
 
