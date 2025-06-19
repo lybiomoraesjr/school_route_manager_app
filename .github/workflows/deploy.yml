@@ -7,13 +7,13 @@ on:
         branches: [main]
 
 permissions:
-    contents: read
+    contents: write
     pages: write
     id-token: write
 
 concurrency:
     group: "pages"
-    cancel-in-progress: false
+    cancel-in-progress: true
 
 jobs:
     build:
@@ -29,10 +29,14 @@ jobs:
                   cache: "yarn"
 
             - name: Install dependencies
-              run: yarn install --frozen-lockfile
+              run: |
+                  yarn install --frozen-lockfile
+                  yarn list
 
             - name: Build
-              run: yarn build
+              run: |
+                  yarn build
+                  ls -la dist/
 
             - name: Setup Pages
               uses: actions/configure-pages@v4
@@ -40,7 +44,7 @@ jobs:
             - name: Upload artifact
               uses: actions/upload-pages-artifact@v3
               with:
-                  path: "./dist"
+                  path: "dist"
 
     deploy:
         environment:
