@@ -9,7 +9,7 @@ O **School Route Manager** é uma solução web completa e moderna para gerencia
 **Instituição:** Instituto Federal de Educação, Ciência e Tecnologia São Paulo  
 **Campus:** Bragança Paulista  
 **Curso:** Tecnologia em Análise e Desenvolvimento de Sistemas  
-**Ano:** 2024
+**Ano:** 2025
 
 ### 👥 Equipe de Desenvolvimento
 
@@ -209,5 +209,5 @@ Tecnologia em Análise e Desenvolvimento de Sistemas
 
 ---
 
-**© 2024 - Todos os direitos reservados**  
+**© 2025 - Todos os direitos reservados**  
 **School Route Manager - Sistema de Gerenciamento de Rotas Escolares**

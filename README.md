@@ -39,7 +39,7 @@ O **School Route Manager** é uma aplicação web moderna desenvolvida para info
 
 ### 📍 Localização
 
-Bragança Paulista, 2024
+Bragança Paulista, 2025
 
 ## ✨ Funcionalidades
 
@@ -285,12 +285,12 @@ Para informações sobre licenciamento comercial, entre em contato conosco.
 
 - **Nome**: Gerenciamento de Rotas Escolares
 - **Versão**: 1.0.0
-- **Ano**: 2024
+- **Ano**: 2025
 - **Localização**: Bragança Paulista, SP
 
 ---
 
 <div align="center">
   <p>Desenvolvido com ❤️ pelos alunos do IFSP Campus Bragança Paulista</p>
-  <p>© 2024 - Todos os direitos reservados</p>
+  <p>© 2025 - Todos os direitos reservados</p>
 </div>
