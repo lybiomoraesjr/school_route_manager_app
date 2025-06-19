@@ -5,10 +5,7 @@ import path from "node:path";
 // https://vite.dev/config/
 export default defineConfig({
 	plugins: [react()],
-	base:
-		process.env.NODE_ENV === "production"
-			? "/school_route_manager_app/"
-			: "/",
+	base: "/school_route_manager_app/",
 	resolve: {
 		alias: {
 			"@": path.resolve(__dirname, "./src"),
