@@ -28,7 +28,10 @@ O **School Route Manager** é uma aplicação web moderna desenvolvida para info
 
 **Instituto Federal de Educação, Ciência e Tecnologia São Paulo**  
 **Campus Bragança Paulista**  
-**Tecnologia em Análise e Desenvolvimento de Sistemas**
+**Tecnologia em Análise e Desenvolvimento de Sistemas**  
+**Disciplina:** PROJETO DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO 1 (BRAOTI1)  
+**Professor:** Andre Luis Maciel Leme  
+**Semestre:** 1º semestre de 2025
 
 **Endereço:** Av. Maj. Fernando Valle, 2013 - São Miguel, Bragança Paulista - SP, 12903-000
 
