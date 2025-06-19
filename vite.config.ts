@@ -7,7 +7,7 @@ export default defineConfig({
 	plugins: [react()],
 	base:
 		process.env.NODE_ENV === "production"
-			? "/school_route_manager_webapp/"
+			? "/school_route_manager_app/"
 			: "/",
 	resolve: {
 		alias: {
