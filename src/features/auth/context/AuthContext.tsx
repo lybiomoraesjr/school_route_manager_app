@@ -31,10 +31,10 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
 	const [isLoadingUserStorageData, setIsLoadingUserStorageData] =
 		useState(true);
 
-	const applySession = ({ userData, token }: StoreSessionParams) => {
-		// tokenManager.setToken(token);
-		setUser(userData);
-	};
+	// const applySession = ({ userData, token }: StoreSessionParams) => {
+	// 	tokenManager.setToken(token);
+	// 	setUser(userData);
+	// };
 
 	const storeSession = ({ userData, token }: StoreSessionParams) => {
 		try {

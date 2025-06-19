@@ -1,4 +1,4 @@
-import { Monitor } from "@/features/monitor/model/monitor.model";
+import { Monitor } from "@/features/monitor/model/monitor.schema";
 import { EntityTable } from "@/shared/components/EntityTable/EntityTable";
 
 type MonitorsTableProps = {
