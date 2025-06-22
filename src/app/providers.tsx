@@ -8,6 +8,7 @@ import { Notifications } from "@mantine/notifications";
 
 import { dateSettings } from "@/config/dates.config";
 import { theme } from "@/theme";
+import { env } from "@/config/env";
 
 export const AppProviders = ({ children }: { children: React.ReactNode }) => {
 	return (
@@ -15,7 +16,9 @@ export const AppProviders = ({ children }: { children: React.ReactNode }) => {
 			<MantineProvider theme={theme}>
 				<Notifications />
 				<AuthContextProvider>
-					<BrowserRouter>{children}</BrowserRouter>
+					<BrowserRouter basename={env.VITE_BASE_PATH}>
+						{children}
+					</BrowserRouter>
 				</AuthContextProvider>
 			</MantineProvider>
 		</DatesProvider>

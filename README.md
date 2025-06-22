@@ -198,9 +198,38 @@ src/
 3. **Configure as variáveis de ambiente**
 
     ```bash
+    # Copie o arquivo de exemplo
     cp .env.example .env
-    # Edite o arquivo .env com suas configurações
+
+    # Para desenvolvimento (opcional)
+    cp .env.example .env.development
+
+    # Para produção (opcional)
+    cp .env.example .env.production
+
+    # Edite os arquivos com suas configurações
     ```
+
+    **Arquivos de Ambiente:**
+
+    - `.env` - Configuração padrão (carregado em todos os modos)
+    - `.env.development` - Configuração para desenvolvimento (`yarn dev`)
+    - `.env.production` - Configuração para produção (`yarn build`)
+    - `.env.example` - Exemplo de configuração (documentação)
+
+    **Variáveis Necessárias:**
+
+    ```env
+    # URL da API
+    VITE_API_URL=http://localhost:3000
+
+    # Caminho base da aplicação
+    # Para desenvolvimento: VITE_BASE_PATH=/
+    # Para GitHub Pages: VITE_BASE_PATH=/school_route_manager_app/
+    VITE_BASE_PATH=/
+    ```
+
+    **📖 Para mais detalhes, consulte o arquivo [ENVIRONMENT.md](ENVIRONMENT.md)**
 
 4. **Execute o projeto em modo de desenvolvimento**
 
