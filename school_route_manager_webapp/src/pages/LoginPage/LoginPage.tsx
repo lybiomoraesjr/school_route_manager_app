@@ -1,18 +1,37 @@
-
-
-import { useState } from 'react';
-import { Eye, EyeSlash } from 'phosphor-react';
-import { TextInput, PasswordInput, Checkbox, Button, Group, Paper, Title, Text } from '@mantine/core';
-
+import { useState } from "react";
+import { Eye, EyeSlash } from "phosphor-react";
+import {
+  TextInput,
+  PasswordInput,
+  Checkbox,
+  Button,
+  Group,
+  Paper,
+  Title,
+  Text,
+} from "@mantine/core";
 
 const LoginPage = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [remember, setRemember] = useState(false);
 
   return (
-    <Group justify="center" align="center" style={{ minHeight: '100vh', background: 'linear-gradient(120deg, #e0e7ff 0%, #f0f4ff 100%)' }}>
-      <Paper shadow="md" radius={18} p={32} withBorder style={{ width: '100%', maxWidth: 400 }}>
+    <Group
+      justify="center"
+      align="center"
+      style={{
+        minHeight: "100vh",
+        background: "linear-gradient(120deg, #e0e7ff 0%, #f0f4ff 100%)",
+      }}
+    >
+      <Paper
+        shadow="md"
+        radius={18}
+        p={32}
+        withBorder
+        style={{ width: "100%", maxWidth: 400 }}
+      >
         <Title order={2} ta="center" mb={2}>
           Acesse sua Conta
         </Title>
@@ -24,7 +43,7 @@ const LoginPage = () => {
             label="E-mail"
             placeholder="seuemail@exemplo.com"
             value={email}
-            onChange={e => setEmail(e.currentTarget.value)}
+            onChange={(e) => setEmail(e.currentTarget.value)}
             id="email"
             type="email"
             required
@@ -36,7 +55,7 @@ const LoginPage = () => {
             label="Senha"
             placeholder="Sua senha"
             value={password}
-            onChange={e => setPassword(e.currentTarget.value)}
+            onChange={(e) => setPassword(e.currentTarget.value)}
             id="password"
             required
             size="md"
@@ -50,10 +69,13 @@ const LoginPage = () => {
             <Checkbox
               label="Lembrar-me"
               checked={remember}
-              onChange={e => setRemember(e.currentTarget.checked)}
+              onChange={(e) => setRemember(e.currentTarget.checked)}
               size="sm"
             />
-            <a href="#" style={{ color: '#2563eb', fontSize: 15, textDecoration: 'none' }}>
+            <a
+              href="#"
+              style={{ color: "#2563eb", fontSize: 15, textDecoration: "none" }}
+            >
               Esqueceu sua senha?
             </a>
           </Group>
@@ -64,5 +86,5 @@ const LoginPage = () => {
       </Paper>
     </Group>
   );
-}
+};
 export default LoginPage;

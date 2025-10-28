@@ -1,13 +1,24 @@
 
-import { AppShell, AppShellMain, AppShellNavbar, AppShellHeader, Group, Button, Avatar, Title, Text, rem } from '@mantine/core';
-import { Bell, Student } from 'phosphor-react';
+
+import { AppShell, AppShellMain, AppShellNavbar, AppShellHeader, Group, Button, Avatar, Title, Text, rem, NavLink } from '@mantine/core';
+import { Bell, Student, Gauge } from 'phosphor-react';
 import { ReactNode } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+
 
 function Navbar() {
+  const location = useLocation();
   return (
     <AppShellNavbar p="md">
-      {/* Adicione navegação, links, etc. */}
-      Sidebar
+      <NavLink
+        label="Dashboard"
+        component={Link}
+        to="/dashboard"
+        leftSection={<Gauge size={20} />}
+        active={location.pathname === '/dashboard'}
+        style={{ marginBottom: 8 }}
+      />
+      {/* Adicione mais links aqui se necessário */}
     </AppShellNavbar>
   );
 }
