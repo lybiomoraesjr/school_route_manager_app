@@ -1,11 +1,13 @@
 
-function App() {
+import AppProviders from "./providers";
+import AppRoutesComponent from "./routes";
 
+function App() {
   return (
-    <>
-     <div>ola mundo</div>
-    </>
-  )
+    <AppProviders>
+      <AppRoutesComponent />
+    </AppProviders>
+  );
 }
 
-export default App
+export default App;
