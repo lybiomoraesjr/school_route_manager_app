@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import {
   Paper,
@@ -17,36 +16,31 @@ import {
 import { DataTable } from 'mantine-datatable';
 import { Pencil, Trash, Warning, Plus, MagnifyingGlass } from 'phosphor-react';
 import { initialStudents, schools } from '../../mock/student.mock';
+import type { Student } from '../../types/student.types';
+
+type StudentFormValues = Omit<Student, 'status'> & { status: boolean };
+
+const buildEmptyForm = (): StudentFormValues => ({
+  name: '',
+  email: '',
+  cpf: '',
+  matricula: '',
+  turno: '',
+  escola: '',
+  endereco: '',
+  telefone: '',
+  status: true,
+});
 
 const StudentManagement = () => {
-  const [students, setStudents] = useState<any[]>(initialStudents);
+  const [students, setStudents] = useState<Student[]>(initialStudents);
   const [search, setSearch] = useState<string>('');
   const [addModalOpen, setAddModalOpen] = useState<boolean>(false);
   const [editModalOpen, setEditModalOpen] = useState<boolean>(false);
   const [deleteModalOpen, setDeleteModalOpen] = useState<boolean>(false);
-  const [selectedStudent, setSelectedStudent] = useState<any | null>(null);
-  const [addForm, setAddForm] = useState<any>({
-    name: '',
-    email: '',
-    cpf: '',
-    matricula: '',
-    turno: '',
-    escola: '',
-    endereco: '',
-    telefone: '',
-    status: true,
-  });
-  const [editForm, setEditForm] = useState<any>({
-    name: '',
-    email: '',
-    cpf: '',
-    matricula: '',
-    turno: '',
-    escola: '',
-    endereco: '',
-    telefone: '',
-    status: true,
-  });
+  const [selectedStudent, setSelectedStudent] = useState<Student | null>(null);
+  const [addForm, setAddForm] = useState<StudentFormValues>(buildEmptyForm());
+  const [editForm, setEditForm] = useState<StudentFormValues>(buildEmptyForm());
 
   const filteredStudents = students.filter(
     (s) =>
@@ -56,8 +50,12 @@ const StudentManagement = () => {
       s.cpf.includes(search)
   );
 
+  const openAddModal = () => {
+    setAddForm(buildEmptyForm());
+    setAddModalOpen(true);
+  };
 
-  const handleEdit = (student: any) => {
+  const handleEdit = (student: Student) => {
     setEditForm({
       name: student.name,
       email: student.email,
@@ -73,56 +71,49 @@ const StudentManagement = () => {
     setEditModalOpen(true);
   };
 
-  const handleDelete = (student: any) => {
+  const handleDelete = (student: Student) => {
     setSelectedStudent(student);
     setDeleteModalOpen(true);
   };
 
   const handleAdd = () => {
-    setStudents((prev) => [
-      ...prev,
-      { ...addForm, status: addForm.status ? 'Ativo' : 'Inativo' },
-    ]);
+    const newStudent: Student = {
+      ...addForm,
+      status: addForm.status ? 'Ativo' : 'Inativo',
+    };
+
+    setStudents((prev) => [...prev, newStudent]);
     setAddModalOpen(false);
-    setAddForm({
-      name: '',
-      email: '',
-      cpf: '',
-      matricula: '',
-      turno: '',
-      escola: '',
-      endereco: '',
-      telefone: '',
-      status: true,
-    });
+    setAddForm(buildEmptyForm());
   };
 
   const handleEditSave = () => {
+    if (!selectedStudent) {
+      return;
+    }
+
+    const updatedStudent: Student = {
+      ...editForm,
+      status: editForm.status ? 'Ativo' : 'Inativo',
+    };
+
     setStudents((prev) =>
       prev.map((s) =>
-        s.matricula === selectedStudent.matricula
-          ? { ...editForm, status: editForm.status ? 'Ativo' : 'Inativo' }
-          : s
+        s.matricula === selectedStudent.matricula ? updatedStudent : s
       )
     );
     setEditModalOpen(false);
     setSelectedStudent(null);
-    setEditForm({
-      name: '',
-      email: '',
-      cpf: '',
-      matricula: '',
-      turno: '',
-      escola: '',
-      endereco: '',
-      telefone: '',
-      status: true,
-    });
+    setEditForm(buildEmptyForm());
   };
 
   const handleDeleteConfirm = () => {
-    setStudents((prev: any[]) =>
-      prev.filter((s: any) => s.matricula !== selectedStudent.matricula)
+    if (!selectedStudent) {
+      return;
+    }
+
+    setStudents((prev) =>
+      prev.filter((s) => s.matricula !== selectedStudent.matricula)
     );
     setDeleteModalOpen(false);
     setSelectedStudent(null);
@@ -134,7 +125,10 @@ const StudentManagement = () => {
         <Title order={1} size={32} fw={900}>
           Gerenciamento de Alunos
         </Title>
-  <Button leftSection={<Plus size={18} />} onClick={() => { setAddModalOpen(true); setAddForm({ name: '', email: '', cpf: '', matricula: '', turno: '', escola: '', endereco: '', telefone: '', status: true }); }}>
+        <Button
+          leftSection={<Plus size={18} />}
+          onClick={openAddModal}
+        >
           Adicionar Aluno
         </Button>
       </Group>
@@ -143,13 +137,17 @@ const StudentManagement = () => {
           leftSection={<MagnifyingGlass size={18} />}
           placeholder="Buscar por nome ou matrícula"
           value={search}
-          onChange={(e) => setSearch(e.currentTarget.value)}
+          onChange={(e) => {
+            const value = e.currentTarget.value;
+            setSearch(value);
+          }}
           size="md"
           radius={8}
           style={{ maxWidth: 340 }}
         />
       </Group>
       <DataTable
+        idAccessor="matricula"
         columns={[
           { accessor: 'name', title: 'Nome' },
           { accessor: 'email', title: 'E-mail' },
@@ -162,7 +160,7 @@ const StudentManagement = () => {
           {
             accessor: 'status',
             title: 'Status',
-            render: (row) => (
+            render: (row: Student) => (
               <Badge color={row.status === 'Ativo' ? 'green' : 'gray'} variant="light">
                 {row.status}
               </Badge>
@@ -172,7 +170,7 @@ const StudentManagement = () => {
             accessor: 'actions',
             title: 'Ações',
             textAlign: 'right',
-            render: (row) => (
+            render: (row: Student) => (
               <Group gap={4} justify="end">
                 <Button variant="subtle" color="blue" size="compact-md" radius={50} onClick={() => handleEdit(row)}>
                   <Pencil size={16} />
@@ -200,34 +198,106 @@ const StudentManagement = () => {
         title="Adicionar Novo Aluno"
         centered
       >
-        <form onSubmit={e => { e.preventDefault(); handleAdd(); }}>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleAdd();
+          }}
+        >
           <Grid gutter={12}>
             <Grid.Col span={6}>
-              <TextInput label="Nome completo" value={addForm.name} onChange={e => setAddForm((f: any) => ({ ...f, name: e.currentTarget.value }))} required />
+              <TextInput
+                label="Nome completo"
+                value={addForm.name}
+                onChange={(e) => {
+                  const value = e.currentTarget.value;
+                  setAddForm((f) => ({ ...f, name: value }));
+                }}
+                required
+              />
             </Grid.Col>
             <Grid.Col span={6}>
-              <TextInput label="E-mail" value={addForm.email} onChange={e => setAddForm((f: any) => ({ ...f, email: e.currentTarget.value }))} required />
+              <TextInput
+                label="E-mail"
+                value={addForm.email}
+                onChange={(e) => {
+                  const value = e.currentTarget.value;
+                  setAddForm((f) => ({ ...f, email: value }));
+                }}
+                required
+              />
             </Grid.Col>
             <Grid.Col span={6}>
-              <TextInput label="CPF" value={addForm.cpf} onChange={e => setAddForm((f: any) => ({ ...f, cpf: e.currentTarget.value }))} required />
+              <TextInput
+                label="CPF"
+                value={addForm.cpf}
+                onChange={(e) => {
+                  const value = e.currentTarget.value;
+                  setAddForm((f) => ({ ...f, cpf: value }));
+                }}
+                required
+              />
             </Grid.Col>
             <Grid.Col span={6}>
-              <TextInput label="Matrícula" value={addForm.matricula} onChange={e => setAddForm((f: any) => ({ ...f, matricula: e.currentTarget.value }))} required />
+              <TextInput
+                label="Matrícula"
+                value={addForm.matricula}
+                onChange={(e) => {
+                  const value = e.currentTarget.value;
+                  setAddForm((f) => ({ ...f, matricula: value }));
+                }}
+                required
+              />
             </Grid.Col>
             <Grid.Col span={6}>
-              <Select label="Turno" data={["Matutino", "Vespertino", "Noturno"]} value={addForm.turno} onChange={v => setAddForm((f: any) => ({ ...f, turno: v || '' }))} required />
+              <Select
+                label="Turno"
+                data={['Matutino', 'Vespertino', 'Noturno']}
+                value={addForm.turno}
+                onChange={(v) => setAddForm((f) => ({ ...f, turno: v || '' }))}
+                required
+              />
             </Grid.Col>
             <Grid.Col span={6}>
-              <Select label="Escola" data={schools} value={addForm.escola} onChange={v => setAddForm((f: any) => ({ ...f, escola: v || '' }))} required />
+              <Select
+                label="Escola"
+                data={schools}
+                value={addForm.escola}
+                onChange={(v) => setAddForm((f) => ({ ...f, escola: v || '' }))}
+                required
+              />
             </Grid.Col>
             <Grid.Col span={12}>
-              <TextInput label="Endereço" value={addForm.endereco} onChange={e => setAddForm((f: any) => ({ ...f, endereco: e.currentTarget.value }))} required />
+              <TextInput
+                label="Endereço"
+                value={addForm.endereco}
+                onChange={(e) => {
+                  const value = e.currentTarget.value;
+                  setAddForm((f) => ({ ...f, endereco: value }));
+                }}
+                required
+              />
             </Grid.Col>
             <Grid.Col span={6}>
-              <TextInput label="Telefone" value={addForm.telefone} onChange={e => setAddForm((f: any) => ({ ...f, telefone: e.currentTarget.value }))} required />
+              <TextInput
+                label="Telefone"
+                value={addForm.telefone}
+                onChange={(e) => {
+                  const value = e.currentTarget.value;
+                  setAddForm((f) => ({ ...f, telefone: value }));
+                }}
+                required
+              />
             </Grid.Col>
             <Grid.Col span={6}>
-              <Checkbox label="Status Ativo" checked={addForm.status} onChange={e => setAddForm((f: any) => ({ ...f, status: e.currentTarget.checked }))} />
+              <Checkbox
+                label="Status Ativo"
+                checked={addForm.status}
+                onChange={(e) => {
+                  const checked = e.currentTarget.checked;
+                  setAddForm((f) => ({ ...f, status: checked }));
+                }}
+              />
             </Grid.Col>
           </Grid>
           <Group justify="end" mt={24}>
@@ -248,34 +318,106 @@ const StudentManagement = () => {
         title="Editar Aluno"
         centered
       >
-        <form onSubmit={e => { e.preventDefault(); handleEditSave(); }}>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleEditSave();
+          }}
+        >
           <Grid gutter={12}>
             <Grid.Col span={6}>
-              <TextInput label="Nome completo" value={editForm.name} onChange={e => setEditForm((f: any) => ({ ...f, name: e.currentTarget.value }))} required />
+              <TextInput
+                label="Nome completo"
+                value={editForm.name}
+                onChange={(e) => {
+                  const value = e.currentTarget.value;
+                  setEditForm((f) => ({ ...f, name: value }));
+                }}
+                required
+              />
             </Grid.Col>
             <Grid.Col span={6}>
-              <TextInput label="E-mail" value={editForm.email} onChange={e => setEditForm((f: any) => ({ ...f, email: e.currentTarget.value }))} required />
+              <TextInput
+                label="E-mail"
+                value={editForm.email}
+                onChange={(e) => {
+                  const value = e.currentTarget.value;
+                  setEditForm((f) => ({ ...f, email: value }));
+                }}
+                required
+              />
             </Grid.Col>
             <Grid.Col span={6}>
-              <TextInput label="CPF" value={editForm.cpf} onChange={e => setEditForm((f: any) => ({ ...f, cpf: e.currentTarget.value }))} required />
+              <TextInput
+                label="CPF"
+                value={editForm.cpf}
+                onChange={(e) => {
+                  const value = e.currentTarget.value;
+                  setEditForm((f) => ({ ...f, cpf: value }));
+                }}
+                required
+              />
             </Grid.Col>
             <Grid.Col span={6}>
-              <TextInput label="Matrícula" value={editForm.matricula} onChange={e => setEditForm((f: any) => ({ ...f, matricula: e.currentTarget.value }))} required />
+              <TextInput
+                label="Matrícula"
+                value={editForm.matricula}
+                onChange={(e) => {
+                  const value = e.currentTarget.value;
+                  setEditForm((f) => ({ ...f, matricula: value }));
+                }}
+                required
+              />
             </Grid.Col>
             <Grid.Col span={6}>
-              <Select label="Turno" data={["Matutino", "Vespertino", "Noturno"]} value={editForm.turno} onChange={v => setEditForm((f: any) => ({ ...f, turno: v || '' }))} required />
+              <Select
+                label="Turno"
+                data={['Matutino', 'Vespertino', 'Noturno']}
+                value={editForm.turno}
+                onChange={(v) => setEditForm((f) => ({ ...f, turno: v || '' }))}
+                required
+              />
             </Grid.Col>
             <Grid.Col span={6}>
-              <Select label="Escola" data={schools} value={editForm.escola} onChange={v => setEditForm((f: any) => ({ ...f, escola: v || '' }))} required />
+              <Select
+                label="Escola"
+                data={schools}
+                value={editForm.escola}
+                onChange={(v) => setEditForm((f) => ({ ...f, escola: v || '' }))}
+                required
+              />
             </Grid.Col>
             <Grid.Col span={12}>
-              <TextInput label="Endereço" value={editForm.endereco} onChange={e => setEditForm((f: any) => ({ ...f, endereco: e.currentTarget.value }))} required />
+              <TextInput
+                label="Endereço"
+                value={editForm.endereco}
+                onChange={(e) => {
+                  const value = e.currentTarget.value;
+                  setEditForm((f) => ({ ...f, endereco: value }));
+                }}
+                required
+              />
             </Grid.Col>
             <Grid.Col span={6}>
-              <TextInput label="Telefone" value={editForm.telefone} onChange={e => setEditForm((f: any) => ({ ...f, telefone: e.currentTarget.value }))} required />
+              <TextInput
+                label="Telefone"
+                value={editForm.telefone}
+                onChange={(e) => {
+                  const value = e.currentTarget.value;
+                  setEditForm((f) => ({ ...f, telefone: value }));
+                }}
+                required
+              />
             </Grid.Col>
             <Grid.Col span={6}>
-              <Checkbox label="Status Ativo" checked={editForm.status} onChange={e => setEditForm((f: any) => ({ ...f, status: e.currentTarget.checked }))} />
+              <Checkbox
+                label="Status Ativo"
+                checked={editForm.status}
+                onChange={(e) => {
+                  const checked = e.currentTarget.checked;
+                  setEditForm((f) => ({ ...f, status: checked }));
+                }}
+              />
             </Grid.Col>
           </Grid>
           <Group justify="end" mt={24}>
@@ -299,7 +441,7 @@ const StudentManagement = () => {
         title="Excluir Aluno"
         centered
       >
-  <Group align="center" gap={8}>
+        <Group align="center" gap={8}>
           <Warning size={48} color="#e8590c" />
           <Text size="lg" fw={500} ta="center">
             Tem certeza que deseja excluir este aluno?
